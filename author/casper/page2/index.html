@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [[! Page Meta ]] -->
-    <title>Finding The Way Home</title>
+    <title>Author</title>
     <meta name="description" content="Finding The Way Home - A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
 
     <meta name="HandheldFriendly" content="True" />
@@ -52,7 +52,7 @@
     <link rel="alternate" type="application/rss+xml" title="Finding The Way Home" href="/jasper/rss.xml" />
 
 </head>
-<body class="tag-template nav-closed">
+<body class="paged archive-template nav-closed">
 
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
@@ -63,9 +63,9 @@
         <li class="nav-home " role="presentation"><a href="/jasper/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/jasper/about.html">About</a></li>
         <li class="nav-fables " role="presentation"><a href="/jasper/tag/fables/">Fables</a></li>
-        <li class="nav-speeches  nav-current" role="presentation"><a href="/jasper/tag/speeches/">Speeches</a></li>
+        <li class="nav-speeches " role="presentation"><a href="/jasper/tag/speeches/">Speeches</a></li>
         <li class="nav-fiction " role="presentation"><a href="/jasper/tag/fiction/">Fiction</a></li>
-        <li class="nav-author " role="presentation"><a href="/jasper/author/casper/">Author</a></li>
+        <li class="nav-author  nav-current" role="presentation"><a href="/jasper/author/casper/">Author</a></li>
     </ul>
     <a class="subscribe-button icon-feed" href="/jasper/rss.xml">Subscribe</a>
 </div>
@@ -74,42 +74,55 @@
     <div class="site-wrapper">
 
         <!-- [[! Everything else gets inserted here ]] -->
-        <!-- < dynamically overriding backgrounds for tags as well as descriptions -->
-
-
-<!-- < default}} -->
+        <!-- < default}} -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- If we have a tag cover, display that - else blog cover - else nothing -->
-<header class="main-header tag-head " style="background-image: url(/jasper/assets/images/cover7.jpg) ">
-    <nav class="main-nav overlay clearfix">
-        <a class="blog-logo" href="/jasper/"><img src="/jasper/assets/images/ghost.png" alt="Blog Logo" /></a>
-        
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        
-    </nav>
-    <div class="vertical">
-        <div class="main-header-content inner">
-            <h1 class="page-title">Speeches</h1>
-            <h2 class="page-description">
+<!-- The big featured header -->
+
+<!-- Everything inside the #author tags pulls data from the author -->
+<!-- #author  -->
+    <header class="main-header author-head " style="background-image: url(/jasper/assets/images/cover4.jpg) ">
+        <nav class="main-nav overlay clearfix">
+            <a class="blog-logo" href="/jasper/"><img src="/jasper/assets/images/ghost.png" alt="Blog Logo" /></a>
             
-                Some of the greatest words ever spoken.
+                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
             
-            </h2>
+        </nav>
+    </header>
+
+    <section class="author-profile inner">
+        
+        <figure class="author-image">
+            <div class="img" style="background-image: url(/jasper/assets/images/casper.png)"><span class="hidden">Casper McFadden's Picture</span></div>
+        </figure>
+        
+        <h1 class="author-title">Casper McFadden</h1>
+        
+            <h2 class="author-bio">A paranormal expert and his daughter bunk in an abandoned house populated by 3 mischievous ghosts and one friendly one.</h2>
+        
+        <div class="author-meta">
+            <span class="author-location icon-location">Maine, USA</span>
+            <span class="author-link icon-link"><a href="http://biomadeira.github.io/jasper/">biomadeira.github.io/jasper/</a></span>
+            <!-- <span class="author-stats"><i class="icon-stats"></i> [[plural ../pagination.total empty='No posts' singular='% post' plural='% posts']]</span> -->
+            <span class="author-stats"><i class="icon-stats"></i>8 posts</span>
         </div>
-    </div>
-</header>
+    </section>
+<!-- /author -->
 
 <!-- The main content area on the homepage -->
 <main id="content" class="content" role="main">
 
-    <!-- The tag below includes the post loop - partials/loop.hbs -->
+    <!-- The tag below includes the post loop - partials/loop.hbs  -->
         <!-- Previous/next page links - only displayed on page 2+ -->
     <div class="extra-pagination inner">
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+        
+            <a class="newer-posts" href="/jasper/author/casper" title="Previous Page">&laquo; Newer Posts</a>
+        
+    
+    <span class="page-number"> Page 2 of 2 </span>
      
 </nav>
         
@@ -119,10 +132,10 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/jasper//i-have-a-dream">I Have a Dream</a></h2>
+            <h2 class="post-title"><a href="/jasper//looking-glass-house">Looking-Glass house</a></h2>
         </header>
         <section class="post-excerpt">
-            <p><p>I am happy to join with you today in what will go down in history as the greatest demonstration for freedom in the history of our... <a class="read-more" href="/jasper//i-have-a-dream">&raquo;</a></p>
+            <p><p>One thing was certain, that the white kitten had had nothing to do with it:— it was the black kitten’s fault entirely. For the white kitten... <a class="read-more" href="/jasper//looking-glass-house">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             <img class="author-thumb" src="/jasper/assets/images/casper.png" alt="Author image" nopin="nopin" />
@@ -131,41 +144,61 @@
             <!-- [[tags prefix=" on "]] -->
              
                 on 
-                
-                    
-                       <a href='/jasper/tag/speeches'>Speeches</a>
-                       
-                
-            
-            <time class="post-date" datetime="1963-08-28">28 Aug 1963</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/jasper//the-purpose-of-education">The Purpose of Education</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p><p>As I engage in the so-called &quot;bull sessions&quot; around and about the school, I too often find that most college men have a misconception of the... <a class="read-more" href="/jasper//the-purpose-of-education">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            <img class="author-thumb" src="/jasper/assets/images/casper.png" alt="Author image" nopin="nopin" />
-            <!-- author -->
-            <a href='/jasper/author/casper'>Casper McFadden</a>
-            <!-- [[tags prefix=" on "]] -->
-             
-                on 
-                
-                    
-                       <a href='/jasper/tag/speeches'>Speeches</a>,
-                       
                 
                     
                        <a href='/jasper/tag/fiction'>Fiction</a>
                        
                 
             
-            <time class="post-date" datetime="1948-12-12">12 Dec 1948</time>
+            <time class="post-date" datetime="1871-03-18">18 Mar 1871</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/jasper//down-the-rabbit-hole">Down The Rabbit Hole</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p><p>Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had... <a class="read-more" href="/jasper//down-the-rabbit-hole">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/jasper/assets/images/casper.png" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/jasper/author/casper'>Casper McFadden</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/jasper/tag/fiction'>Fiction</a>
+                       
+                
+            
+            <time class="post-date" datetime="1865-11-26">26 Nov 1865</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/jasper//gettysburg-address">Gettysburg Address</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p><p>Fourscore and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men... <a class="read-more" href="/jasper//gettysburg-address">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" src="/jasper/assets/images/casper.png" alt="Author image" nopin="nopin" />
+            <!-- author -->
+            <a href='/jasper/author/casper'>Casper McFadden</a>
+            <!-- [[tags prefix=" on "]] -->
+             
+                on 
+                
+                    
+                       <a href='/jasper/tag/fiction'>Fiction</a>
+                       
+                
+            
+            <time class="post-date" datetime="1863-11-19">19 Nov 1863</time>
         </footer>
     </article>
     
@@ -174,13 +207,18 @@
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+        
+            <a class="newer-posts" href="/jasper/author/casper" title="Previous Page">&laquo; Newer Posts</a>
+        
+    
+    <span class="page-number"> Page 2 of 2 </span>
      
 </nav>
     
 
 
 </main>
+
 
         <footer class="site-footer clearfix">
           <section class="copyright"><a href="/jasper/">Finding The Way Home</a> &copy; 2015</section>
