@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
+  <link href="/tag/ml/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="/" rel="alternate" type="text/html" />
+  <updated>2019-05-07T20:44:02+09:00</updated>
+  <id>/tag/ml/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">Ghost | </title>
+  
+
+  
+    <subtitle>The professional publishing platform</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">Azure Machine Learning Reference Site</title>
+      <link href="/azure-ml-tech-docs" rel="alternate" type="text/html" title="Azure Machine Learning Reference Site" />
+      <published>2017-07-27T19:00:00+09:00</published>
+      <updated>2017-07-27T19:00:00+09:00</updated>
+      <id>/azure-ml-tech-docs</id>
+      <content type="html" xml:base="/azure-ml-tech-docs">&lt;h1 id=&quot;readme&quot;&gt;Readme&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;DevOps
+    &lt;ul&gt;
+      &lt;li&gt;Auzre ML, DevOps를 활용하여 데이터 분석 플랫폼 구축&lt;/li&gt;
+      &lt;li&gt;샘플 데이터 &amp;amp; 모델 기반으로 DevOps for AI 빌드/릴리즈 파이프라인 설계&lt;/li&gt;
+      &lt;li&gt;Model별 버전 관리&lt;/li&gt;
+      &lt;li&gt;Model 버전별 precision/recall 결과 비교하여 우수한 Model 자동 배포&lt;/li&gt;
+      &lt;li&gt;Azure DevOps 이용하여 신규버전 Container 생성(ACR), 이후 IoT Edge 배포&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Azure ML Service
+    &lt;ul&gt;
+      &lt;li&gt;Cloud 환경에서 Data + DL Model 학습 (object detection)&lt;/li&gt;
+      &lt;li&gt;DL Model Test dataset 활용하여 precision/recall 등 지표에 대한 계산/표시&lt;/li&gt;
+      &lt;li&gt;모델 선정 및 Model Container 생성 (versioning)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Iot Edge 연동
+    &lt;ul&gt;
+      &lt;li&gt;Vision AI Dev Kit Camera에 Model Container 배포&lt;/li&gt;
+      &lt;li&gt;Image와 Prediction한 결과를 Cloud로 전송하여 live prediction 결과 취합&lt;/li&gt;
+      &lt;li&gt;Bounding box와 confidence score 값 저장&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;개요&quot;&gt;개요&lt;/h1&gt;
+&lt;p&gt;기본 기술문서: https://docs.microsoft.com/en-us/azure/machine-learning/service/&lt;/p&gt;
+
+&lt;p&gt;주요 개념: https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture&lt;/p&gt;
+
+&lt;p&gt;모델관리 개념: https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-model-management-and-deployment&lt;/p&gt;
+
+&lt;p&gt;Pipeline 개념: https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines&lt;/p&gt;
+
+&lt;p&gt;보안 관련 접근: https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-enterprise-security&lt;/p&gt;
+
+&lt;h1 id=&quot;hackfest&quot;&gt;Hackfest&lt;/h1&gt;
+
+&lt;p&gt;아래 hackfest 사이트를 통해 Azure ML의 전반적인 사용법을 익힐 수 있습니다.
+https://github.com/Azure/LearnAI_Azure_ML&lt;/p&gt;
+
+&lt;h1 id=&quot;샘플&quot;&gt;샘플&lt;/h1&gt;
+
+&lt;p&gt;샘플 사용방법: https://docs.microsoft.com/en-us/azure/machine-learning/service/samples-notebooks&lt;/p&gt;
+
+&lt;p&gt;깃허브: https://github.com/Azure/MachineLearningNotebooks&lt;/p&gt;
+
+&lt;p&gt;(여기에 아래 거의 모든 기능들에 대한 샘플이 있으니 가장 유용할 것으로 판단.)&lt;/p&gt;
+
+&lt;p&gt;기능별 상세 가이드는 How-to guides (방법 가이드) 이하 항목으로 나온다.
+직관적으로 되어 있어서 원하시는 단계를 찾으시면 되며, 몇 가지만 소개하면 다음과 같습니다:&lt;/p&gt;
+
+&lt;p&gt;개발환경: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment&lt;/p&gt;
+
+&lt;p&gt;DataPrep SDK를 이용한 데이터가공: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-transform-data&lt;/p&gt;
+
+&lt;p&gt;Datastore: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-access-data&lt;/p&gt;
+
+&lt;p&gt;원격수행: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets&lt;/p&gt;
+
+&lt;p&gt;Tensorflow 기본방식: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-tensorflow&lt;/p&gt;
+
+&lt;p&gt;Hyperparameter Tuning: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-tune-hyperparameters&lt;/p&gt;
+
+&lt;p&gt;Automated ML: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train&lt;/p&gt;
+
+&lt;p&gt;ONNX: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-build-deploy-onnx&lt;/p&gt;
+
+&lt;p&gt;배포: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where&lt;/p&gt;
+
+&lt;p&gt;실시간 추론: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-consume-web-service&lt;/p&gt;
+
+&lt;p&gt;배치 추론: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-run-batch-predictions&lt;/p&gt;
+
+&lt;p&gt;모니터: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-app-insights&lt;/p&gt;
+
+&lt;p&gt;쿼터관리: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-quotas&lt;/p&gt;
+
+&lt;h1 id=&quot;sdk&quot;&gt;SDK&lt;/h1&gt;
+&lt;p&gt;Azure ML SDK (설치방법 포함): https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py&lt;/p&gt;
+
+&lt;p&gt;Dataprep SDK: https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py&lt;/p&gt;
+
+&lt;p&gt;Monitoring SDK: https://docs.microsoft.com/en-us/python/api/overview/azure/monitoring/intro?view=azureml-monitoring-py&lt;/p&gt;
+
+&lt;h1 id=&quot;etc&quot;&gt;ETC&lt;/h1&gt;
+&lt;p&gt;릴리즈 노트: https://docs.microsoft.com/en-us/azure/machine-learning/service/azure-machine-learning-release-notes&lt;/p&gt;
+
+&lt;p&gt;가격체계: https://azure.microsoft.com/ko-kr/pricing/details/machine-learning-service/&lt;/p&gt;
+
+&lt;p&gt;가장 빠른 방법은 아래의 Tutorial 아래에 있는 4개의 샘플을 직접 수행&lt;/p&gt;
+
+&lt;p&gt;MNIST 데이터로 1. 모델 생성, 2. 모델 배포&lt;/p&gt;
+
+&lt;p&gt;NYC Taxi 데이터로 1. 데이터 가공, 2. Automated ML로 모델 생성&lt;/p&gt;
+
+&lt;p&gt;https://docs.microsoft.com/en-us/azure/machine-learning/service/tutorial-train-models-with-aml&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>sysmoon</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="azure" />
+      
+        <category term="ml" />
+      
+
+      
+        <summary type="html">Readme DevOps Auzre ML, DevOps를 활용하여 데이터 분석 플랫폼 구축 샘플 데이터 &amp;amp; 모델 기반으로 DevOps for AI 빌드/릴리즈 파이프라인 설계 Model별 버전 관리 Model 버전별 precision/recall 결과 비교하여 우수한 Model 자동 배포 Azure DevOps 이용하여 신규버전 Container 생성(ACR), 이후 IoT Edge 배포 Azure ML Service Cloud 환경에서 Data + DL Model 학습 (object detection) DL Model Test dataset 활용하여 precision/recall 등 지표에 대한 계산/표시 모델 선정 및 Model Container 생성 (versioning) Iot Edge 연동 Vision AI Dev Kit Camera에 Model Container 배포 Image와 Prediction한 결과를 Cloud로 전송하여 live prediction 결과 취합 Bounding box와 confidence score 값 저장 개요 기본 기술문서: https://docs.microsoft.com/en-us/azure/machine-learning/service/</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>

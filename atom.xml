@@ -23,6 +23,49 @@
     
       
       <item>
+        <title>Azure Machine Learning Reference Site</title>
+        
+          <description>&lt;h1 id=&quot;readme&quot;&gt;Readme&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;DevOps
+    &lt;ul&gt;
+      &lt;li&gt;Auzre ML, DevOps를 활용하여 데이터 분석 플랫폼 구축&lt;/li&gt;
+      &lt;li&gt;샘플 데이터 &amp;amp; 모델 기반으로 DevOps for AI 빌드/릴리즈 파이프라인 설계&lt;/li&gt;
+      &lt;li&gt;Model별 버전 관리&lt;/li&gt;
+      &lt;li&gt;Model 버전별 precision/recall 결과 비교하여 우수한 Model 자동 배포&lt;/li&gt;
+      &lt;li&gt;Azure DevOps 이용하여 신규버전 Container 생성(ACR), 이후 IoT Edge 배포&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Azure ML Service
+    &lt;ul&gt;
+      &lt;li&gt;Cloud 환경에서 Data + DL Model 학습 (object detection)&lt;/li&gt;
+      &lt;li&gt;DL Model Test dataset 활용하여 precision/recall 등 지표에 대한 계산/표시&lt;/li&gt;
+      &lt;li&gt;모델 선정 및 Model Container 생성 (versioning)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Iot Edge 연동
+    &lt;ul&gt;
+      &lt;li&gt;Vision AI Dev Kit Camera에 Model Container 배포&lt;/li&gt;
+      &lt;li&gt;Image와 Prediction한 결과를 Cloud로 전송하여 live prediction 결과 취합&lt;/li&gt;
+      &lt;li&gt;Bounding box와 confidence score 값 저장&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;개요&quot;&gt;개요&lt;/h1&gt;
+&lt;p&gt;기본 기술문서: https://docs.microsoft.com/en-us/azure/machine-learning/service/&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 27 Jul 2017 19:00:00 +0900</pubDate>
+        <link>
+        /azure-ml-tech-docs</link>
+        <guid isPermaLink="true">/azure-ml-tech-docs</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Welcome to Ghost</title>
         
           <description>&lt;p&gt;Hey! Welcome to Ghost, it’s great to have you :)&lt;/p&gt;
