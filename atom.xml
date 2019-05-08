@@ -8,6 +8,22 @@
     
       
       <item>
+        <title>Azure Machine Learning Architecture</title>
+        
+          <description>&lt;h1 id=&quot;azure-ml-architecture&quot;&gt;Azure ML Architecture&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;../assets/images/az_ml_archi.png&quot; alt=&quot;Azure ML Architecture&quot; /&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /azure-ml-archi</link>
+        <guid isPermaLink="true">/azure-ml-archi</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Azure Machine Learning Reference Site</title>
         
           <description>&lt;h1 id=&quot;readme&quot;&gt;Readme&lt;/h1&gt;

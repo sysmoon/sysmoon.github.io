@@ -11,7 +11,7 @@
 
 
 
-    <title>Azure Machine Learning Reference Site</title>
+    <title>Azure Machine Learning Architecture</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -36,24 +36,24 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="문형권 기술블로그 (sysmoon@sk.com)" />
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="/azure-ml-tech-docs" />
+    <link rel="canonical" href="/azure-ml-archi" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="sysmoon's blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Azure Machine Learning Reference Site" />
-    <meta property="og:description" content="Readme DevOps Auzre ML, DevOps를 활용하여 데이터 분석 플랫폼 구축 샘플 데이터 &amp; 모델 기반으로 DevOps for AI 빌드/릴리즈 파이프라인 설계 Model별 버전 관리 Model 버전별 precision/recall 결과 비교하여 우수한 Model 자동 배포 Azure DevOps 이용하여 신규버전 Container 생성(ACR), 이후 IoT Edge 배포 Azure ML Service Cloud 환경에서 Data +" />
-    <meta property="og:url" content="/azure-ml-tech-docs" />
+    <meta property="og:title" content="Azure Machine Learning Architecture" />
+    <meta property="og:description" content="Azure ML Architecture Azure ML Architecture는 기본적으로 BigData 수집/저장/분석을 위한 플랫폼과 큰 차이가 없다. 분석을 위한 플랫폼에 ML을 위한 파이프라인이 들어가 있는 차이점이 있을 뿐이다. 따라서 전체적인 구조는 데이터 수집/저장(실시간/배치) -&gt; 데이터 탐색 -&gt; ML 모델 개발 -&gt; ML 서비스 운영(DW/BI) -&gt; 모니터링 구조로 되어있다. 1. 데이터 수집 (Batch Job)" />
+    <meta property="og:url" content="/azure-ml-archi" />
     <meta property="og:image" content="/assets/images/blog-cover.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/sysmoon" />
     <meta property="article:author" content="https://www.facebook.com/sysmoon" />
-    <meta property="article:published_time" content="2017-07-27T19:00:00+09:00" />
-    <meta property="article:modified_time" content="2017-07-27T19:00:00+09:00" />
+    <meta property="article:published_time" content="2018-05-08T19:00:00+09:00" />
+    <meta property="article:modified_time" content="2018-05-08T19:00:00+09:00" />
     <meta property="article:tag" content="Azure" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Azure Machine Learning Reference Site" />
-    <meta name="twitter:description" content="Readme DevOps Auzre ML, DevOps를 활용하여 데이터 분석 플랫폼 구축 샘플 데이터 &amp; 모델 기반으로 DevOps for AI 빌드/릴리즈 파이프라인 설계 Model별 버전 관리 Model 버전별 precision/recall 결과 비교하여 우수한 Model 자동 배포 Azure DevOps 이용하여 신규버전 Container 생성(ACR), 이후 IoT Edge 배포 Azure ML Service Cloud 환경에서 Data +" />
+    <meta name="twitter:title" content="Azure Machine Learning Architecture" />
+    <meta name="twitter:description" content="Azure ML Architecture Azure ML Architecture는 기본적으로 BigData 수집/저장/분석을 위한 플랫폼과 큰 차이가 없다. 분석을 위한 플랫폼에 ML을 위한 파이프라인이 들어가 있는 차이점이 있을 뿐이다. 따라서 전체적인 구조는 데이터 수집/저장(실시간/배치) -&gt; 데이터 탐색 -&gt; ML 모델 개발 -&gt; ML 서비스 운영(DW/BI) -&gt; 모니터링 구조로 되어있다. 1. 데이터 수집 (Batch Job)" />
     <meta name="twitter:url" content="/" />
     <meta name="twitter:image" content="/assets/images/blog-cover.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -74,7 +74,7 @@
         "name": "sysmoon's blog",
         "logo": "/"
     },
-    "url": "/azure-ml-tech-docs",
+    "url": "/azure-ml-archi",
     "image": {
         "@type": "ImageObject",
         "url": "/assets/images/blog-cover.jpg",
@@ -83,9 +83,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/azure-ml-tech-docs"
+        "@id": "/azure-ml-archi"
     },
-    "description": "Readme DevOps Auzre ML, DevOps를 활용하여 데이터 분석 플랫폼 구축 샘플 데이터 &amp; 모델 기반으로 DevOps for AI 빌드/릴리즈 파이프라인 설계 Model별 버전 관리 Model 버전별 precision/recall 결과 비교하여 우수한 Model 자동 배포 Azure DevOps 이용하여 신규버전 Container 생성(ACR), 이후 IoT Edge 배포 Azure ML Service Cloud 환경에서 Data +"
+    "description": "Azure ML Architecture Azure ML Architecture는 기본적으로 BigData 수집/저장/분석을 위한 플랫폼과 큰 차이가 없다. 분석을 위한 플랫폼에 ML을 위한 파이프라인이 들어가 있는 차이점이 있을 뿐이다. 따라서 전체적인 구조는 데이터 수집/저장(실시간/배치) -&gt; 데이터 탐색 -&gt; ML 모델 개발 -&gt; ML 서비스 운영(DW/BI) -&gt; 모니터링 구조로 되어있다. 1. 데이터 수집 (Batch Job)"
 }
     </script>
 
@@ -98,7 +98,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Azure Machine Learning Reference Site" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Azure Machine Learning Architecture" href="/feed.xml" />
 
 
 </head>
@@ -163,7 +163,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="27 July 2017">27 July 2017</time>
+                    <time class="post-full-meta-date" datetime=" 8 May 2018"> 8 May 2018</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -177,112 +177,37 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">Azure Machine Learning Reference Site</h1>
+                <h1 class="post-full-title">Azure Machine Learning Architecture</h1>
             </header>
 
             
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="readme">Readme</h1>
-<ol>
-  <li>DevOps
-    <ul>
-      <li>Auzre ML, DevOps를 활용하여 데이터 분석 플랫폼 구축</li>
-      <li>샘플 데이터 &amp; 모델 기반으로 DevOps for AI 빌드/릴리즈 파이프라인 설계</li>
-      <li>Model별 버전 관리</li>
-      <li>Model 버전별 precision/recall 결과 비교하여 우수한 Model 자동 배포</li>
-      <li>Azure DevOps 이용하여 신규버전 Container 생성(ACR), 이후 IoT Edge 배포</li>
-    </ul>
-  </li>
-  <li>Azure ML Service
-    <ul>
-      <li>Cloud 환경에서 Data + DL Model 학습 (object detection)</li>
-      <li>DL Model Test dataset 활용하여 precision/recall 등 지표에 대한 계산/표시</li>
-      <li>모델 선정 및 Model Container 생성 (versioning)</li>
-    </ul>
-  </li>
-  <li>Iot Edge 연동
-    <ul>
-      <li>Vision AI Dev Kit Camera에 Model Container 배포</li>
-      <li>Image와 Prediction한 결과를 Cloud로 전송하여 live prediction 결과 취합</li>
-      <li>Bounding box와 confidence score 값 저장</li>
-    </ul>
-  </li>
-</ol>
+                    <h1 id="azure-ml-architecture">Azure ML Architecture</h1>
+<p><img src="../assets/images/az_ml_archi.png" alt="Azure ML Architecture" /></p>
 
-<h1 id="개요">개요</h1>
-<p>기본 기술문서: https://docs.microsoft.com/en-us/azure/machine-learning/service/</p>
+<p>Azure ML Architecture는 기본적으로 BigData 수집/저장/분석을 위한 플랫폼과 큰 차이가 없다.
+분석을 위한 플랫폼에 ML을 위한 파이프라인이 들어가 있는 차이점이 있을 뿐이다.
+따라서 전체적인 구조는 데이터 수집/저장(실시간/배치) -&gt; 데이터 탐색 -&gt; ML 모델 개발 -&gt; ML 서비스 운영(DW/BI) -&gt; 모니터링 구조로 되어있다.</p>
 
-<p>주요 개념: https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture</p>
+<h2 id="1-데이터-수집-batch-job">1. 데이터 수집 (Batch Job)</h2>
+<p>원천 데이터가 있는 Data WareHouse (DataBase, Hadoop, File ..) 에서 Batch Job으로 데이터를 로딩한 후, 
+ETL Processing을 통해 데이터에 대한 정제작업을 하여 Data Lake or Blob Storage에 저장할 한다.</p>
 
-<p>모델관리 개념: https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-model-management-and-deployment</p>
+<h2 id="2-데이터-수집-realtime-job">2. 데이터 수집 (Realtime Job)</h2>
+<p>실시간성 데이터 (Social Network, Network Security Info, Applcation Log) 의 경우 Event Hubs, Kafka와 같은 Pub/Sub 구조의 대용량 로그 큐잉 시스템에 저장하고, 이후 Azure DATABRICS, HDINSIGHT, Stream Analytics와 같은 다양한 종류의 분석 플랫폼을 Consumer로 활용하여 ML 데이터로 활용하기 위한 ETL Processing 이 가능하다. 이후 데이터는 다시 분석용 다양한 종료의 분석용 DB(Cosmos DB, RDB, Redis)에 저장하여, 빅데이터 분석 플랫폼에서 BI를 위한 데이터로 활용하거나, Data Warehouse (Data Lake, Blob Storage)에 저장하여 ML을 위한 데이터 용도로 활용한다.</p>
 
-<p>Pipeline 개념: https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-ml-pipelines</p>
+<h2 id="3-데이터-탐색">3. 데이터 탐색</h2>
+<p>2번 과정에 의해 정제된 데이터는 데이터의 포맷과 활용 용도에 따라 NoSQL, Redis 등 다양한 DB에 저장될 수 있고,
+Data Lake, Blob Storage와 같은 형태의 Storage 공간에도 저장될 수 있다. 이러한 다양한 데이터 소스를 통해 데이터를 탐색하여 가져온 후, 주요 KPI 항목에 대한 차트를 대시보드 형태로 꾸며 대시보드를 구성하야 BI 도구로 활용할 수 있고, ML 모델 개발을 위한 데이터로도 활용 가능하다.</p>
 
-<p>보안 관련 접근: https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-enterprise-security</p>
+<h2 id="4-ml-모델-개발">4. ML 모델 개발</h2>
+<p>Azure는 다양한 데이터 소스를 가져와서 ML 모델을 쉽게 개발할 수 있는 AML(Azure ML) 서비스를 제공하고 있다. ML 모델 개발에 필요한 언어, 도구, 파이프라인 설계 등을 쉽게 할 수 있고, 특히 python 언어를 활용하여 3번 과정에서 탐색한 데이터를 Traning 데이터로 활용하여 모델을 만들고, Expreiment 하고, 모델을 Dockerizing 하여 컨테이너 형태로 원하는 타켓에 배포하기 위한 각 과정을 ML 파이프라인으로 설계가 가능하다.</p>
 
-<h1 id="hackfest">Hackfest</h1>
-
-<p>아래 hackfest 사이트를 통해 Azure ML의 전반적인 사용법을 익힐 수 있습니다.
-https://github.com/Azure/LearnAI_Azure_ML</p>
-
-<h1 id="샘플">샘플</h1>
-
-<p>샘플 사용방법: https://docs.microsoft.com/en-us/azure/machine-learning/service/samples-notebooks</p>
-
-<p>깃허브: https://github.com/Azure/MachineLearningNotebooks</p>
-
-<p>(여기에 아래 거의 모든 기능들에 대한 샘플이 있으니 가장 유용할 것으로 판단.)</p>
-
-<p>기능별 상세 가이드는 How-to guides (방법 가이드) 이하 항목으로 나온다.
-직관적으로 되어 있어서 원하시는 단계를 찾으시면 되며, 몇 가지만 소개하면 다음과 같습니다:</p>
-
-<p>개발환경: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment</p>
-
-<p>DataPrep SDK를 이용한 데이터가공: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-transform-data</p>
-
-<p>Datastore: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-access-data</p>
-
-<p>원격수행: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets</p>
-
-<p>Tensorflow 기본방식: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-tensorflow</p>
-
-<p>Hyperparameter Tuning: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-tune-hyperparameters</p>
-
-<p>Automated ML: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train</p>
-
-<p>ONNX: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-build-deploy-onnx</p>
-
-<p>배포: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where</p>
-
-<p>실시간 추론: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-consume-web-service</p>
-
-<p>배치 추론: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-run-batch-predictions</p>
-
-<p>모니터: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-enable-app-insights</p>
-
-<p>쿼터관리: https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-quotas</p>
-
-<h1 id="sdk">SDK</h1>
-<p>Azure ML SDK (설치방법 포함): https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py</p>
-
-<p>Dataprep SDK: https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py</p>
-
-<p>Monitoring SDK: https://docs.microsoft.com/en-us/python/api/overview/azure/monitoring/intro?view=azureml-monitoring-py</p>
-
-<h1 id="etc">ETC</h1>
-<p>릴리즈 노트: https://docs.microsoft.com/en-us/azure/machine-learning/service/azure-machine-learning-release-notes</p>
-
-<p>가격체계: https://azure.microsoft.com/ko-kr/pricing/details/machine-learning-service/</p>
-
-<p>가장 빠른 방법은 아래의 Tutorial 아래에 있는 4개의 샘플을 직접 수행</p>
-
-<p>MNIST 데이터로 1. 모델 생성, 2. 모델 배포</p>
-
-<p>NYC Taxi 데이터로 1. 데이터 가공, 2. Automated ML로 모델 생성</p>
-
-<p>https://docs.microsoft.com/en-us/azure/machine-learning/service/tutorial-train-models-with-aml</p>
+<h2 id="5-ml-모델-배포">5. ML 모델 배포</h2>
+<p>생성된 ML 모델은 다양한 프레임워크(Tensorflow, Pytorch, Keras..)를 통해 다양한 컴퓨팅 자원(Kubernetes, IoT Edge, FPGA, ML Server, ML Studio Web Service, On-Premise ML Servers…)에 Transfer Learning 되고, Realtime or Batch Job을 통해 들어온 데이터를 Infcluence 한다. Realtime 연계를 위해서는 실시간 수집한 데이터를 기반으로 다양한 Serverless 컴퓨팅 자원(Stream Analytics, Service Fabric, Functions, Logic Apps) 활용이 가능하고, Batch 연계를 위해서는 Azure Databricks, SQL Data 도구를 활용 가능하다.
+Realtime or Batch 연계를 통해 ML Confluence 된 데이터 결과물들은 비지니스 앱, Analytics 도구 등 다양한 형태와 연동하여 ML 서비스가 가능하다.</p>
 
                 </div>
             </section>
@@ -364,14 +289,14 @@ https://github.com/Azure/LearnAI_Azure_ML</p>
                                 
                                   
                                     
-                                        
-                                        
-                                            <li><a href="/azure-ml-archi">Azure Machine Learning Architecture</a></li>
-                                        
-                                    
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/azure-ml-tech-docs">Azure Machine Learning Reference Site</a></li>
+                                        
                                     
                                   
                                 
@@ -390,12 +315,15 @@ https://github.com/Azure/LearnAI_Azure_ML</p>
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
                 
 
     <article class="post-card post-template no-image">
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/azure-ml-archi">
+            <a class="post-card-content-link" href="/azure-ml-tech-docs">
                 <header class="post-card-header">
                     
                         
@@ -409,7 +337,7 @@ https://github.com/Azure/LearnAI_Azure_ML</p>
                         
                     
 
-                    <h2 class="post-card-title">Azure Machine Learning Architecture</h2>
+                    <h2 class="post-card-title">Azure Machine Learning Reference Site</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
@@ -445,9 +373,6 @@ https://github.com/Azure/LearnAI_Azure_ML</p>
 
             
 
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-
         </div>
     </div>
 </aside>
@@ -463,18 +388,18 @@ https://github.com/Azure/LearnAI_Azure_ML</p>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Azure Machine Learning Reference Site</div>
+    <div class="floating-header-title">Azure Machine Learning Architecture</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Azure+Machine+Learning+Reference+Site&amp;url=https://sysmoon.github.io/azure-ml-tech-docs"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Azure+Machine+Learning+Architecture&amp;url=https://sysmoon.github.io/azure-ml-archi"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://sysmoon.github.io/azure-ml-tech-docs"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://sysmoon.github.io/azure-ml-archi"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
