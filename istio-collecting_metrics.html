@@ -180,7 +180,8 @@ into the {body} of the default.hbs template -->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="collecting-metric">Collecting Metric</h1>
+                    <p><img src="../assets/images/istio/istio_archi.png" alt="istio architecture" /></p>
+<h1 id="collecting-metric">Collecting Metric</h1>
 <p>istio는 각 pods의 Envoy side_car_proxy(Envoy) 에서 생성된 telemery 정보를 Mixer에 통합 수집하여 관리한다.
 이 세션에서는 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio congiruation에 대해 알아본다.
 마지막 부분에 Service Mesh 안에서 새로운 서비스를 위한 Metric이 활성화 된다.</p>
@@ -203,13 +204,17 @@ into the {body} of the default.hbs template -->
   <li>Bookinfo (sample application)에 traffic 전송한다. Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라우징 하거나, 아래와 같이 curl을 이용하여 http request 수행한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://$GATEWAY_URL/productpage
 </code></pre></div>    </div>
-    <p>참고로 minikube 환경에서 GATEWAY_URL을 설정하기 위한 방법을 아래 방법을 사용하면 된다.</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export INGRESS_HOST=$(minikube ip)  
+  </li>
+</ol>
+
+<p>참고로 minikube 환경에서 GATEWAY_URL을 설정하기 위한 방법을 아래 방법을 사용하면 된다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export INGRESS_HOST=$(minikube ip)  
 export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')  
 export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')  
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
-</code></pre></div>    </div>
-  </li>
+</code></pre></div></div>
+
+<ol>
   <li>새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;
 </code></pre></div>    </div>
