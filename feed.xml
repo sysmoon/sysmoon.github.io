@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-05-28T16:29:26+09:00</updated><id>/</id><title type="html">sysmoon’s blog</title><subtitle>문형권 기술블로그 (sysmoon@sk.com)</subtitle><entry><title type="html">Istio Telemetry (Collecting Metric)</title><link href="/istio-collecting_metrics" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metric)" /><published>2018-05-28T19:00:00+09:00</published><updated>2018-05-28T19:00:00+09:00</updated><id>/istio-collecting_metrics</id><content type="html" xml:base="/istio-collecting_metrics">&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-05-28T16:32:14+09:00</updated><id>/</id><title type="html">sysmoon’s blog</title><subtitle>문형권 기술블로그 (sysmoon@sk.com)</subtitle><entry><title type="html">Istio Telemetry (Collecting Metric)</title><link href="/istio-collecting_metrics" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metric)" /><published>2018-05-28T19:00:00+09:00</published><updated>2018-05-28T19:00:00+09:00</updated><id>/istio-collecting_metrics</id><content type="html" xml:base="/istio-collecting_metrics">&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
 &lt;p&gt;istio는 각 pods의 Envoy sidecar proxy 에서 생성된 telemery 정보를 Mixer에 통합 수집하여 관리한다.
 이 세션에서는 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio congiruation에 대해 알아보자.
 마지막 부분에 매쉬 서비스 안에서 새로운 서비스를 위한 새로운 Metric이 활성화 된다.&lt;/p&gt;
@@ -23,13 +23,6 @@ Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl http://$GATEWAY_URL/productpage
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;참고로, minikube 환경에서 $GATEWAY_URL을 얻는 방법은&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;blabla
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
   &lt;li&gt;새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;amp;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;

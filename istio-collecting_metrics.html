@@ -205,13 +205,6 @@ Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://$GATEWAY_URL/productpage
 </code></pre></div>    </div>
   </li>
-</ol>
-
-<p>참고로, minikube 환경에서 $GATEWAY_URL을 얻는 방법은</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blabla
-</code></pre></div></div>
-
-<ol>
   <li>새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;
 </code></pre></div>    </div>
