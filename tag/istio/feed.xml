@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/istio/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-05-28T16:19:03+09:00</updated>
+  <updated>2019-05-28T16:21:12+09:00</updated>
   <id>/tag/istio/feed.xml</id>
 
   
@@ -71,35 +71,40 @@
 &lt;p&gt;istio &amp;gt;= 1.1.2 일 경우, 아래 yaml configuration 적용 필요&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;ol&gt;
   &lt;li&gt;Bookinfo (sample application)에 traffic 전송&lt;br /&gt;
 Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라우징 하거나, 아래와 같이 curl을 이용하여 http request 수행한다.
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl http://$GATEWAY_URL/productpage
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;참고로, minikube 환경에서 $GATEWAY_URL을 얻는 방법은&lt;br /&gt;
-```
-export INGRESS_HOST=$(minikube ip)&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;export INGRESS_PORT=$(kubectl -n istio-system get serviceistio-ingressgateway -o jsonpath=’{.spec.ports[?(@.name==”http2”)].nodePort}’)&lt;/p&gt;
+&lt;p&gt;참고로, minikube 환경에서 $GATEWAY_URL을 얻는 방법은&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export INGRESS_HOST=$(minikube ip)
 
-&lt;p&gt;export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath=’{.spec.ports[?(@.name==”https”)].nodePort}’)&lt;/p&gt;
+export INGRESS_PORT=$(kubectl -n istio-system get serviceistio-ingressgateway -o jsonpath='{.spec.ports[?(@.name==&quot;http2&quot;)].nodePort}')
 
-&lt;p&gt;export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3. 새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
+export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name==&quot;https&quot;)].nodePort}')
+
+export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath=’{.items[0].metadata.name}’) 9090:9090 &amp;amp;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;새로운 metric value 값 확인을 위해 [Prometheus UI](http://localhost:9090/graph?g0.range_input=1h&amp;amp;g0.expr=istio_double_request_count&amp;amp;g0.tab=1) 웹브라우저 접속하여 확인한다.  
-위 제공된 링크는 Prometheus UI 페이지를 오픈하고, istio_double_request_count metric 값을 쿼리를 실행한다.  
-Console Tab 안에 아래 테이블에 표시된 entry 정보는 다음과 유사하다.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;istio_double_request_count{destination=”details-v1”,instance=”172.17.0.12:42422”,job=”istio-mesh”,message=”twice the fun!”,reporter=”client”,source=”productpage-v1”}   8
-istio_double_request_count{destination=”details-v1”,instance=”172.17.0.12:42422”,job=”istio-mesh”,message=”twice the fun!”,reporter=”server”,source=”productpage-v1”}   8
-istio_double_request_count{destination=”istio-policy”,instance=”172.17.0.12:42422”,job=”istio-mesh”,message=”twice the fun!”,reporter=”server”,source=”details-v1”}   4
-istio_double_request_count{destination=”istio-policy”,instance=”172.17.0.12:42422”,job=”istio-mesh”,message=”twice the fun!”,reporter=”server”,source=”istio-ingressgateway”}   4
-```
-더 많은 metric value 값을 Prometheus에서 쿼리하기 위해 &lt;a href=&quot;https://istio.io/docs/tasks/telemetry/metrics/querying-metrics/&quot;&gt;Querying Istio Metrics&lt;/a&gt; 을 참고한다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;새로운 metric value 값 확인을 위해 &lt;a href=&quot;http://localhost:9090/graph?g0.range_input=1h&amp;amp;g0.expr=istio_double_request_count&amp;amp;g0.tab=1&quot;&gt;Prometheus UI&lt;/a&gt; 웹브라우저 접속하여 확인한다.&lt;br /&gt;
+위 제공된 링크는 Prometheus UI 페이지를 오픈하고, istio_double_request_count metric 값을 쿼리를 실행한다.&lt;br /&gt;
+Console Tab 안에 아래 테이블에 표시된 entry 정보는 다음과 유사하다.&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;istio_double_request_count{destination=&quot;details-v1&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;client&quot;,source=&quot;productpage-v1&quot;}   8
+istio_double_request_count{destination=&quot;details-v1&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;server&quot;,source=&quot;productpage-v1&quot;}   8
+istio_double_request_count{destination=&quot;istio-policy&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;server&quot;,source=&quot;details-v1&quot;}   4
+istio_double_request_count{destination=&quot;istio-policy&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;server&quot;,source=&quot;istio-ingressgateway&quot;}   4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;더 많은 metric value 값을 Prometheus에서 쿼리하기 위해 &lt;a href=&quot;https://istio.io/docs/tasks/telemetry/metrics/querying-metrics/&quot;&gt;Querying Istio Metrics&lt;/a&gt; 을 참고한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h1 id=&quot;understanding-the-metrics-configuration&quot;&gt;Understanding the metrics configuration&lt;/h1&gt;
 &lt;p&gt;이번 task 에서는 service mesh 안에서 발생하는 모든 트랙픽에 대한 새로운 metric 정보를 자동으로 report &amp;amp; generate 하기 위한 설정을 Mixer에 추가했다.
