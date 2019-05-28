@@ -260,7 +260,7 @@ doublerequestcout 에 대한 각각의 instance에 대해, configuration은 Mixe
 
 <p>믹서 인스턴스는 instance_name 매개 변수를 통해 Prometheus 메트릭과 일치합니다. instance_name은 Mixer instances(exmaple: doublerequestcount.instance.istio-system)을 위해 fully-qualified 이름이어야 합니다.</p>
 
-<p>rule 구성은 새루운 rule 이름 <em>doubleprom</em> 정의합니다. 이 rule은 Mixer가 모든 doublerequestcount instance를 <em>doublehandler</em> handler로 전송하도록 설정합니다. rule 안에 match 절이 없기 때문에 그리고 rule은 네임스페이스(istio-system) 안에서 default configuration 설정되었기 때문에 rule은 service mesh 안에 있는 모든 request에 대해 동작한다.</p>
+<p>rule 구성은 새로운 rule 이름 <em>doubleprom</em> 정의합니다. 이 rule은 Mixer가 모든 doublerequestcount instance를 <em>doublehandler</em> handler로 전송하도록 설정합니다. rule 안에 match 절이 없기 때문에 그리고 rule은 네임스페이스(istio-system) 안에서 default configuration 설정되었기 때문에 rule은 service mesh 안에 있는 모든 request에 대해 동작한다.</p>
 
                 </div>
             </section>
