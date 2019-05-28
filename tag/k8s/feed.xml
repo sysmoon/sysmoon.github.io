@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/k8s/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-05-28T18:45:57+09:00</updated>
+  <updated>2019-05-28T19:06:32+09:00</updated>
   <id>/tag/k8s/feed.xml</id>
 
   
@@ -124,7 +124,23 @@ istio_double_request_count{destination=&quot;istio-policy&quot;,instance=&quot;1
 
 &lt;p&gt;믹서 인스턴스는 instance_name 매개 변수를 통해 Prometheus 메트릭과 일치합니다. instance_name은 Mixer instances(exmaple: doublerequestcount.instance.istio-system)을 위해 fully-qualified 이름이어야 합니다.&lt;/p&gt;
 
-&lt;p&gt;rule 구성은 새로운 rule 이름 &lt;em&gt;doubleprom&lt;/em&gt; 정의합니다. 이 rule은 Mixer가 모든 doublerequestcount instance를 &lt;em&gt;doublehandler&lt;/em&gt; handler로 전송하도록 설정합니다. rule 안에 match 절이 없기 때문에 그리고 rule은 네임스페이스(istio-system) 안에서 default configuration 설정되었기 때문에 rule은 service mesh 안에 있는 모든 request에 대해 동작한다.&lt;/p&gt;</content>
+&lt;p&gt;rule 구성은 새로운 rule 이름 &lt;em&gt;doubleprom&lt;/em&gt; 정의합니다. 이 rule은 Mixer가 모든 doublerequestcount instance를 &lt;em&gt;doublehandler&lt;/em&gt; handler로 전송하도록 설정합니다. rule 안에 match 절이 없기 때문에 그리고 rule은 네임스페이스(istio-system) 안에서 default configuration 설정되었기 때문에 rule은 service mesh 안에 있는 모든 request에 대해 동작한다.&lt;/p&gt;
+
+&lt;h1 id=&quot;cleanup&quot;&gt;Cleanup&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;new metric configuraiton 설정을 삭제한다.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl delete -f samples/bookinfo/telemetry/metrics.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;만약 istio version &amp;gt;= 1.1.2 이면,&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl delete -f samples/bookinfo/telemetry/metrics-crd.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;로컬에서 실행되어 동작중인 kubectl port-forward 프로세스를 죽인다.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;killall kubectl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이어지는 후속 task 작업을 계속 진행할 것이 아니라면, &lt;a href=&quot;https://istio.io/docs/examples/bookinfo/#cleanup&quot;&gt;Bookinfo cleanup&lt;/a&gt; 내용을 참고하여 bookinfo 관련 애플리케이션을 shtudown 한다.&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
