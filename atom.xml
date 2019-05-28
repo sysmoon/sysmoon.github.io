@@ -8,6 +8,40 @@
     
       
       <item>
+        <title>Istio Telemetry (Collecting Metric)</title>
+        
+          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+&lt;p&gt;istio는 각 pods의 Envoy sidecar proxy 에서 생성된 telemery 정보를 Mixer에 통합 수집하여 관리한다.
+이 세션에서는 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio congiruation에 대해 알아보자.
+마지막 부분에 매쉬 서비스 안에서 새로운 서비스를 위한 새로운 Metric이 활성화 된다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 28 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-collecting_metrics</link>
+        <guid isPermaLink="true">/istio-collecting_metrics</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Azure IoTHub</title>
+        
+          <description>&lt;h1 id=&quot;introduce&quot;&gt;Introduce&lt;/h1&gt;
+&lt;p&gt;Azure IotHub를 이용하여 다양한 IoT 디바이스를 관리하고, Telemetry 정보를 수집하여 Power BI로 분석 가능하다. 또한 IoT 디바이스를 Edge Computing으로 활용하여 IotHub 런타임 위에 ML Conference가 가능한 컨테이너를 내려 다양한 고급 분석이 가능하다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /azure-iotedge</link>
+        <guid isPermaLink="true">/azure-iotedge</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Azure Machine Learning Architecture</title>
         
           <description>&lt;h1 id=&quot;azure-ml-architecture&quot;&gt;Azure ML Architecture&lt;/h1&gt;
