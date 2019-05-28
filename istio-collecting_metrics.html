@@ -200,7 +200,7 @@ into the {body} of the default.hbs template -->
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 </code></pre></div>    </div>
   </li>
-  <li>Bookinfo (sample application)에 traffic 전송<br />
+  <li>Bookinfo (sample application)에 traffic 전송한다.<br />
 Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라우징 하거나, 아래와 같이 curl을 이용하여 http request 수행한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://$GATEWAY_URL/productpage
 </code></pre></div>    </div>
@@ -211,9 +211,7 @@ Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라
   </li>
 </ol>
 
-<p>새로운 metric value 값 확인을 위해 <a href="http://localhost:9090/graph?g0.range_input=1h&amp;g0.expr=istio_double_request_count&amp;g0.tab=1">Prometheus UI</a> 웹브라우저 접속하여 확인한다.<br />
-위 제공된 링크는 Prometheus UI 페이지를 오픈하고, istio_double_request_count metric 값을 쿼리를 실행한다.<br />
-Console Tab 안에 아래 테이블에 표시된 entry 정보는 다음과 유사하다.</p>
+<p>새로운 metric value 값 확인을 위해 <a href="http://localhost:9090/graph?g0.range_input=1h&amp;g0.expr=istio_double_request_count&amp;g0.tab=1">Prometheus UI</a> 웹브라우저 접속하여 확인한다. 위 제공된 링크는 Prometheus UI 페이지를 오픈하고, istio_double_request_count metric 값을 쿼리를 실행한다. Console Tab 안에 아래 테이블에 표시된 entry 정보는 다음과 유사하다.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>istio_double_request_count{destination="details-v1",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="client",source="productpage-v1"}   8
 istio_double_request_count{destination="details-v1",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="server",source="productpage-v1"}   8
