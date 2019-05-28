@@ -208,13 +208,7 @@ Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라
 </ol>
 
 <p>참고로, minikube 환경에서 $GATEWAY_URL을 얻는 방법은</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export INGRESS_HOST=$(minikube ip)
-
-export INGRESS_PORT=$(kubectl -n istio-system get serviceistio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
-
-export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')
-
-export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blabla
 </code></pre></div></div>
 
 <ol>
