@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-05-28T16:21:12+09:00</updated><id>/</id><title type="html">sysmoon’s blog</title><subtitle>문형권 기술블로그 (sysmoon@sk.com)</subtitle><entry><title type="html">Istio Telemetry (Collecting Metric)</title><link href="/istio-collecting_metrics" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metric)" /><published>2018-05-28T19:00:00+09:00</published><updated>2018-05-28T19:00:00+09:00</updated><id>/istio-collecting_metrics</id><content type="html" xml:base="/istio-collecting_metrics">&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-05-28T16:23:50+09:00</updated><id>/</id><title type="html">sysmoon’s blog</title><subtitle>문형권 기술블로그 (sysmoon@sk.com)</subtitle><entry><title type="html">Istio Telemetry (Collecting Metric)</title><link href="/istio-collecting_metrics" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metric)" /><published>2018-05-28T19:00:00+09:00</published><updated>2018-05-28T19:00:00+09:00</updated><id>/istio-collecting_metrics</id><content type="html" xml:base="/istio-collecting_metrics">&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
 &lt;p&gt;istio는 각 pods의 Envoy sidecar proxy 에서 생성된 telemery 정보를 Mixer에 통합 수집하여 관리한다.
 이 세션에서는 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio congiruation에 대해 알아보자.
 마지막 부분에 매쉬 서비스 안에서 새로운 서비스를 위한 새로운 Metric이 활성화 된다.&lt;/p&gt;
@@ -43,17 +43,20 @@ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
   &lt;li&gt;새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;amp;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;새로운 metric value 값 확인을 위해 &lt;a href=&quot;http://localhost:9090/graph?g0.range_input=1h&amp;amp;g0.expr=istio_double_request_count&amp;amp;g0.tab=1&quot;&gt;Prometheus UI&lt;/a&gt; 웹브라우저 접속하여 확인한다.&lt;br /&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;새로운 metric value 값 확인을 위해 &lt;a href=&quot;http://localhost:9090/graph?g0.range_input=1h&amp;amp;g0.expr=istio_double_request_count&amp;amp;g0.tab=1&quot;&gt;Prometheus UI&lt;/a&gt; 웹브라우저 접속하여 확인한다.&lt;br /&gt;
 위 제공된 링크는 Prometheus UI 페이지를 오픈하고, istio_double_request_count metric 값을 쿼리를 실행한다.&lt;br /&gt;
 Console Tab 안에 아래 테이블에 표시된 entry 정보는 다음과 유사하다.&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;istio_double_request_count{destination=&quot;details-v1&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;client&quot;,source=&quot;productpage-v1&quot;}   8
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;istio_double_request_count{destination=&quot;details-v1&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;client&quot;,source=&quot;productpage-v1&quot;}   8
 istio_double_request_count{destination=&quot;details-v1&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;server&quot;,source=&quot;productpage-v1&quot;}   8
 istio_double_request_count{destination=&quot;istio-policy&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;server&quot;,source=&quot;details-v1&quot;}   4
 istio_double_request_count{destination=&quot;istio-policy&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;server&quot;,source=&quot;istio-ingressgateway&quot;}   4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;더 많은 metric value 값을 Prometheus에서 쿼리하기 위해 &lt;a href=&quot;https://istio.io/docs/tasks/telemetry/metrics/querying-metrics/&quot;&gt;Querying Istio Metrics&lt;/a&gt; 을 참고한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;더 많은 metric value 값을 Prometheus에서 쿼리하기 위해 &lt;a href=&quot;https://istio.io/docs/tasks/telemetry/metrics/querying-metrics/&quot;&gt;Querying Istio Metrics&lt;/a&gt; 을 참고한다.&lt;/p&gt;
 
 &lt;h1 id=&quot;understanding-the-metrics-configuration&quot;&gt;Understanding the metrics configuration&lt;/h1&gt;
 &lt;p&gt;이번 task 에서는 service mesh 안에서 발생하는 모든 트랙픽에 대한 새로운 metric 정보를 자동으로 report &amp;amp; generate 하기 위한 설정을 Mixer에 추가했다.
