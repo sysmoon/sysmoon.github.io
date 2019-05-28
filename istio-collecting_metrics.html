@@ -192,7 +192,7 @@ into the {body} of the default.hbs template -->
 만약 다른 설정값을 사용하고 있다면, 위 설정으로 업데이트해야 한다.</p>
 
 <h2 id="collecting-new-metrics">Collecting new metrics</h2>
-<ul>
+<ol>
   <li>새로운 metric 정보를 수집하기 위해 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
 </code></pre></div>    </div>
@@ -208,7 +208,7 @@ into the {body} of the default.hbs template -->
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;
 </code></pre></div>    </div>
   </li>
-</ul>
+</ol>
 
 <p>새로운 metric value 값 확인을 위해 <a href="http://localhost:9090/graph?g0.range_input=1h&amp;g0.expr=istio_double_request_count&amp;g0.tab=1">Prometheus UI</a> 웹브라우저 접속하여 확인한다. 위 제공된 링크는 Prometheus UI 페이지를 오픈하고, istio_double_request_count metric 값을 쿼리를 실행한다. Console Tab 안에 아래 테이블에 표시된 entry 정보는 다음과 유사하다.</p>
 
