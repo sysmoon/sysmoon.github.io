@@ -192,9 +192,12 @@ into the {body} of the default.hbs template -->
 만약 다른 설정값을 사용하고 있다면, 위 설정으로 업데이트해야 한다.</p>
 
 <h2 id="collecting-new-metrics">Collecting new metrics</h2>
-<p>새로운 metric 정보를 수집하기 위해 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집한다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
-</code></pre></div></div>
+<ol>
+  <li>새로운 metric 정보를 수집하기 위해 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집한다.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>istio &gt;= 1.1.2 일 경우, 아래 yaml configuration 적용 필요
 kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
