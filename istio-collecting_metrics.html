@@ -203,7 +203,7 @@ into the {body} of the default.hbs template -->
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 </code></pre></div></div>
 <ol>
-  <li>Bookinfo (sample application)에 traffic 전송
+  <li>Bookinfo (sample application)에 traffic 전송<br />
 Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라우징 하거나, 아래와 같이 curl을 이용하여 http request 수행한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://$GATEWAY_URL/productpage
 </code></pre></div>    </div>
@@ -218,8 +218,7 @@ export INGRESS_HOST=$(minikube ip)</p>
 <p>export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath=’{.spec.ports[?(@.name==”https”)].nodePort}’)</p>
 
 <p>export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. 새로운 metric 정보가 생생/수집 되고 있는지 확인하다.
-쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. 새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
 </code></pre></div></div>
 <p>kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath=’{.items[0].metadata.name}’) 9090:9090 &amp;</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>새로운 metric value 값 확인을 위해 [Prometheus UI](http://localhost:9090/graph?g0.range_input=1h&amp;g0.expr=istio_double_request_count&amp;g0.tab=1) 웹브라우저 접속하여 확인한다.  
