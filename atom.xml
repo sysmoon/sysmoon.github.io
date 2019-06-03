@@ -8,7 +8,7 @@
     
       
       <item>
-        <title>Istio Telemetru (Visualizing metrics with Grafana)</title>
+        <title>Istio Telemetry (4. Visualizing metrics with Grafana)</title>
         
           <description>&lt;p&gt;이번 task 에서는 mesh 트래픽을 모니터링 하기 위한 Istio Dashboard 설정과 사용 방법에 대해 소개한다.
 이 task 중에 당신은 istio add-on Grafana 와 Service Mesh 트래픽 데이터를 보기 위한 web-based 인터페이스를 사용하게 될 것이다.&lt;/p&gt;
@@ -24,7 +24,21 @@
     
       
       <item>
-        <title>Istio Telemetry (Collecting Metric for TCP services)</title>
+        <title>Istio Telemetry (5. Collecting Logs)</title>
+        
+          <description>&lt;p&gt;이 task는 Service Mesh를 위해 어떻게 자동 telemetry 수집을 위한 설정을 하는지 보여준다.&lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 03 Jun 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-logs_collecting_logs</link>
+        <guid isPermaLink="true">/istio-logs_collecting_logs</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Istio Telemetry (2. Collecting Metric for TCP services)</title>
         
           <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
 &lt;p&gt;이번 테스크에서는 서비스 매쉬를 위해 어떻게 telemetry 정보를 자동으로 수집하기 위한 설정을 하는지 보여준다. 마지막 테스크에서는 TCP 서비스를 콜하기 위한 새로운 metric이 활성화 될 것이다.&lt;/p&gt;
@@ -40,7 +54,7 @@
     
       
       <item>
-        <title>Istio Telemetry (Collecting Metrics)</title>
+        <title>Istio Telemetry (1. Collecting Metrics)</title>
         
           <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
 &lt;p&gt;istio는 각 pods의 Envoy side_car_proxy(Envoy) 에서 생성된 telemery 정보를 Mixer에 통합 수집하여 관리한다.
@@ -75,21 +89,7 @@ Bookinfo sample 어플케이션이 이 task를 위해 예제로 활용되기 때
     
       
       <item>
-        <title>Istio Telemetry (Tracing Overview)</title>
-        
-          <description>
-</description>
-        
-        <pubDate>Mon, 28 May 2018 19:00:00 +0900</pubDate>
-        <link>
-        /istio-tracing_overview</link>
-        <guid isPermaLink="true">/istio-tracing_overview</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Istio Telemetry (Querying Metrics from Prometheus)</title>
+        <title>Istio Telemetry (3. Querying Metrics from Prometheus)</title>
         
           <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
 &lt;p&gt;이번 테스크에서는 Prometheus를 활용헤ㅐ서 istion를 위한 쿼리를 어떻게 하는지 보여준다.&lt;br /&gt;

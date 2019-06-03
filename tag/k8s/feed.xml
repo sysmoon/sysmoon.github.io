@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/k8s/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-06-03T19:22:25+09:00</updated>
+  <updated>2019-06-03T19:29:02+09:00</updated>
   <id>/tag/k8s/feed.xml</id>
 
   
@@ -44,8 +44,8 @@
 
   
     <entry>
-      <title type="html">Istio Telemetru (Visualizing metrics with Grafana)</title>
-      <link href="/istio-telemetry_visualizing_metrics_with_grafana" rel="alternate" type="text/html" title="Istio Telemetru (Visualizing metrics with Grafana)" />
+      <title type="html">Istio Telemetry (4. Visualizing metrics with Grafana)</title>
+      <link href="/istio-telemetry_visualizing_metrics_with_grafana" rel="alternate" type="text/html" title="Istio Telemetry (4. Visualizing metrics with Grafana)" />
       <published>2018-06-03T19:00:00+09:00</published>
       <updated>2018-06-03T19:00:00+09:00</updated>
       <id>/istio-telemetry_visualizing_metrics_with_grafana</id>
@@ -148,8 +148,42 @@ Istio 워크로드 대시보드는 아래와 유사하다.
     </entry>
   
     <entry>
-      <title type="html">Istio Telemetry (Collecting Metric for TCP services)</title>
-      <link href="/istio-telemetry_metrics_collecting_metrics_for_tcp_services" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metric for TCP services)" />
+      <title type="html">Istio Telemetry (5. Collecting Logs)</title>
+      <link href="/istio-logs_collecting_logs" rel="alternate" type="text/html" title="Istio Telemetry (5. Collecting Logs)" />
+      <published>2018-06-03T19:00:00+09:00</published>
+      <updated>2018-06-03T19:00:00+09:00</updated>
+      <id>/istio-logs_collecting_logs</id>
+      <content type="html" xml:base="/istio-logs_collecting_logs">&lt;p&gt;이 task는 Service Mesh를 위해 어떻게 자동 telemetry 수집을 위한 설정을 하는지 보여준다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>sysmoon</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="k8s" />
+      
+
+      
+        <summary type="html">이 task는 Service Mesh를 위해 어떻게 자동 telemetry 수집을 위한 설정을 하는지 보여준다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Istio Telemetry (2. Collecting Metric for TCP services)</title>
+      <link href="/istio-telemetry_metrics_collecting_metrics_for_tcp_services" rel="alternate" type="text/html" title="Istio Telemetry (2. Collecting Metric for TCP services)" />
       <published>2018-06-03T19:00:00+09:00</published>
       <updated>2018-06-03T19:00:00+09:00</updated>
       <id>/istio-telemetry_metrics_collecting_metrics_for_tcp_services</id>
@@ -269,8 +303,8 @@ TCP 서비스의 Metric 집합은 인스턴스에서 사용할 수 있는 제한
     </entry>
   
     <entry>
-      <title type="html">Istio Telemetry (Collecting Metrics)</title>
-      <link href="/istio-telemetry_collecting_metrics" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metrics)" />
+      <title type="html">Istio Telemetry (1. Collecting Metrics)</title>
+      <link href="/istio-telemetry_collecting_metrics" rel="alternate" type="text/html" title="Istio Telemetry (1. Collecting Metrics)" />
       <published>2018-06-03T19:00:00+09:00</published>
       <updated>2018-06-03T19:00:00+09:00</updated>
       <id>/istio-telemetry_collecting_metrics</id>
@@ -390,42 +424,8 @@ istio_double_request_count{destination=&quot;istio-policy&quot;,instance=&quot;1
     </entry>
   
     <entry>
-      <title type="html">Istio Telemetry (Tracing Overview)</title>
-      <link href="/istio-tracing_overview" rel="alternate" type="text/html" title="Istio Telemetry (Tracing Overview)" />
-      <published>2018-05-28T19:00:00+09:00</published>
-      <updated>2018-05-28T19:00:00+09:00</updated>
-      <id>/istio-tracing_overview</id>
-      <content type="html" xml:base="/istio-tracing_overview"></content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>sysmoon</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="k8s" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Istio Telemetry (Querying Metrics from Prometheus)</title>
-      <link href="/istio-telemetry_querying_metrics_from_prometheus" rel="alternate" type="text/html" title="Istio Telemetry (Querying Metrics from Prometheus)" />
+      <title type="html">Istio Telemetry (3. Querying Metrics from Prometheus)</title>
+      <link href="/istio-telemetry_querying_metrics_from_prometheus" rel="alternate" type="text/html" title="Istio Telemetry (3. Querying Metrics from Prometheus)" />
       <published>2018-05-28T19:00:00+09:00</published>
       <updated>2018-05-28T19:00:00+09:00</updated>
       <id>/istio-telemetry_querying_metrics_from_prometheus</id>
