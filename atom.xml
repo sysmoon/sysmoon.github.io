@@ -8,6 +8,22 @@
     
       
       <item>
+        <title>Istio Telemetry (Collecting Metric for TCP services)</title>
+        
+          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+&lt;p&gt;이번 테스크에서는 서비스 매쉬를 위해 어떻게 telemetry 정보를 자동으로 수집하기 위한 설정을 하는지 보여준다. 마지막 테스크에서는 TCP 서비스를 콜하기 위한 새로운 metric이 활성화 될 것이다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 03 Jun 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-telemetry_metrics_collecting_metrics_for_tcp_services</link>
+        <guid isPermaLink="true">/istio-telemetry_metrics_collecting_metrics_for_tcp_services</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Istio Telemetry (Collecting Metrics)</title>
         
           <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
@@ -22,22 +38,6 @@ Bookinfo sample 어플케이션이 이 task를 위해 예제로 활용되기 때
         <link>
         /istio-telemetry_collecting_metrics</link>
         <guid isPermaLink="true">/istio-telemetry_collecting_metrics</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Istio Telemetry (Collecting Metric for TCP services)</title>
-        
-          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
-&lt;p&gt;이번 테스크에서는 서비스 매쉬를 위해 어떻게 telemetry 정보를 자동으로 수집하기 위한 설정을 하는지 보여준다. 마지막 테스크에서는 TCP 서비스를 콜하기 위한 새로운 metric이 활성화 될 것이다.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Sun, 03 Jun 2018 19:00:00 +0900</pubDate>
-        <link>
-        /istio-telemetry_metrics_collecting_metrics_for_tcp_services</link>
-        <guid isPermaLink="true">/istio-telemetry_metrics_collecting_metrics_for_tcp_services</guid>
       </item>
       
     
