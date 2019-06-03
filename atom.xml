@@ -89,7 +89,7 @@ Bookinfo sample 어플케이션이 이 task를 위해 예제로 활용되기 때
     
       
       <item>
-        <title>Querying Metrics from Prometheus</title>
+        <title>Istio Telemetry (Querying Metrics from Prometheus)</title>
         
           <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
 &lt;p&gt;이번 테스크에서는 Prometheus를 활용헤ㅐ서 istion를 위한 쿼리를 어떻게 하는지 보여준다.&lt;br /&gt;

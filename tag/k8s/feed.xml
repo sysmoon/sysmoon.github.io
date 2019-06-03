@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/k8s/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-06-03T19:06:48+09:00</updated>
+  <updated>2019-06-03T19:07:34+09:00</updated>
   <id>/tag/k8s/feed.xml</id>
 
   
@@ -424,8 +424,8 @@ Istio 워크로드 대시보드는 아래와 유사하다.
     </entry>
   
     <entry>
-      <title type="html">Querying Metrics from Prometheus</title>
-      <link href="/istio-telemetry_querying_metrics_from_prometheus" rel="alternate" type="text/html" title="Querying Metrics from Prometheus" />
+      <title type="html">Istio Telemetry (Querying Metrics from Prometheus)</title>
+      <link href="/istio-telemetry_querying_metrics_from_prometheus" rel="alternate" type="text/html" title="Istio Telemetry (Querying Metrics from Prometheus)" />
       <published>2018-05-28T19:00:00+09:00</published>
       <updated>2018-05-28T19:00:00+09:00</updated>
       <id>/istio-telemetry_querying_metrics_from_prometheus</id>
