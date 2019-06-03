@@ -8,6 +8,25 @@
     
       
       <item>
+        <title>Istio Telemetry (Collecting Metrics)</title>
+        
+          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+&lt;p&gt;istio는 각 pods의 Envoy side_car_proxy(Envoy) 에서 생성된 telemery 정보를 Mixer에 통합 수집하여 관리한다.
+이 세션에서는 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio congiruation에 대해 알아본다.
+마지막 부분에 Service Mesh 안에서 새로운 서비스를 위한 Metric이 활성화 된다.
+Bookinfo sample 어플케이션이 이 task를 위해 예제로 활용되기 때문에 먼저 Bookinfo App 이 먼저 배포되어 있어야 한다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 03 Jun 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-telemetry_collecting_metrics</link>
+        <guid isPermaLink="true">/istio-telemetry_collecting_metrics</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Istio Telemetry (Collecting Metric for TCP services)</title>
         
           <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
@@ -40,17 +59,35 @@
     
       
       <item>
-        <title>Istio Telemetry (Collecting Metric)</title>
+        <title>Visualizing metrics with Grafana</title>
         
-          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;../assets/images/istio/istio_archi.png&quot; alt=&quot;istio architecture&quot; /&gt;&lt;/p&gt;
+          <description>&lt;p&gt;이번 task 에서는 mesh 트래픽을 모니터링 하기 위한 Istio Dashboard 설정과 사용 방법에 대해 소개한다.
+이 task 중에 당신은 istio add-on Grafana 와 Service Mesh 트래픽 데이터를 보기 위한 web-based 인터페이스를 사용하게 될 것이다.&lt;/p&gt;
 
 </description>
         
         <pubDate>Mon, 28 May 2018 19:00:00 +0900</pubDate>
         <link>
-        /istio-telemetry_metrics_collecting_metrics</link>
-        <guid isPermaLink="true">/istio-telemetry_metrics_collecting_metrics</guid>
+        /istio-telemetry_visualizing_metrics_with_grafana</link>
+        <guid isPermaLink="true">/istio-telemetry_visualizing_metrics_with_grafana</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Querying Metrics from Prometheus</title>
+        
+          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+&lt;p&gt;이번 테스크에서는 Prometheus를 활용헤ㅐ서 istion를 위한 쿼리를 어떻게 하는지 보여준다.&lt;br /&gt;
+이 테스크의 일 부분으로써 metric 값 쿼리를 위한 web-based 인터페이스를 사용할 계획이다.&lt;br /&gt;
+이 task 전체에서 Bookinfo 샘플 애플리케이션이 사용된다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 28 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-telemetry_querying_metrics_from_prometheus</link>
+        <guid isPermaLink="true">/istio-telemetry_querying_metrics_from_prometheus</guid>
       </item>
       
     
