@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/k8s/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-05-28T19:06:32+09:00</updated>
+  <updated>2019-06-03T12:23:56+09:00</updated>
   <id>/tag/k8s/feed.xml</id>
 
   
@@ -44,12 +44,133 @@
 
   
     <entry>
+      <title type="html">Istio Telemetry (Collecting Metric for TCP services)</title>
+      <link href="/istio-telemetry_metrics_collecting_metrics_for_tcp_services" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metric for TCP services)" />
+      <published>2018-06-03T19:00:00+09:00</published>
+      <updated>2018-06-03T19:00:00+09:00</updated>
+      <id>/istio-telemetry_metrics_collecting_metrics_for_tcp_services</id>
+      <content type="html" xml:base="/istio-telemetry_metrics_collecting_metrics_for_tcp_services">&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+&lt;p&gt;이번 테스크에서는 서비스 매쉬를 위해 어떻게 telemetry 정보를 자동으로 수집하기 위한 설정을 하는지 보여준다. 마지막 테스크에서는 TCP 서비스를 콜하기 위한 새로운 metric이 활성화 될 것이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;before-you-begin&quot;&gt;Before you begin&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Istio를 클러스터에 설치 배포하세요.&lt;/li&gt;
+  &lt;li&gt;사용하고 있는 K8S 클러스터에 Istio를 설치하고, App을 배포한다. 이 task는 Minxer가 default configuration (–configDefaultNamespace=istio-system) 으로 설정되어 있다고 가정한다.
+만약 다른 설정값을 사용하고 있다면, 위 설정으로 업데이트해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;collecting-new-telemetry-data&quot;&gt;Collecting new telemetry data&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;새로운 metric 생성과 자동 수집을 위해 아래 YAML 설정 파일을 적용하세요.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl apply -f samples/bookinfo/telemetry/tcp-metrics.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;만약 istio &amp;gt;= 1.1.2 이면 다음 설정파일을 대신 사용하세요
+kubectl apply -f samples/bookinfo/telemetry/tcp-metrics-crd.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;MongoDB 사용을 위히 Bookinfo를 설정하세요
+    &lt;ol&gt;
+      &lt;li&gt;&lt;strong&gt;rating&lt;/strong&gt; service v2를 설치합니다.
+ 만약 automatic sidecar injection 이 활성화 되어있으면, kubectl을 이용하야 간단하게 배포합니다.
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl apply -f samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;만약 수동 sidecar injection을 사용한다면, 다음 명령어를 대신 사용하세요&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl apply -f &amp;lt;(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;mongodb 서비스 설치
+ 만약 automatic sidecar injection 이 활성화 되어있으면, kubectl을 이용하야 간단하게 배포합니다.
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl apply -f samples/bookinfo/platform/kube/bookinfo-db.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;만약 수동 sidecar injection을 사용한다면, 다음 명령어를 대신 사용하세요&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl apply -f &amp;lt;(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo-db.yaml)
+ service &quot;mongodb&quot; configured
+ deployment &quot;mongodb-v1&quot; configured
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Bookinfo 샘플은 각 마이크로서비스 별 다양한 버전을 배포합니다. 그래서 각 서비스 버전별 집합에 대해 정의하고 이에 대한 도착지 규칙과 각 서비스 집합에 대한 로드밸런싱을 위한 도착지 규칙을 생성할 것입니다.
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;만약 TLS가 활성화되어있다면, 다음 설정을 대신 적용하세요.&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl apply -f samples/bookinfo/networking/destination-rule-all-mtls.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;다음 명령어로 도착지 규칙을 확인할 수 있다.&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl get destinationrules -o yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;virtual service 에 있는 subset reference가 도착치 규칙에 의존성을 가지고 있기 때문에, virtual service가 subsets을 참조하기 전데 도착치 규칙이 전파되기까지 잠시 기다린다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;rating&lt;/strong&gt;, ** reviews** virtual service를 생성한다.
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; kubectl apply -f samples/bookinfo/networking/virtual-service-ratings-db.yaml
+ Created config virtual-service/default/reviews at revision 3003
+ Created config virtual-service/default/ratings at revision 3004
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;샘플 애플리케이션으로 트래픽을 전송한다.&lt;br /&gt;
+Bookinfo 샘플 테스를 위해 http://$GATEWAY_URL/productpage 웹브라우저로 방문하거나 아래 명령어를 실행한다.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl http://$GATEWAY_URL/productpage
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;새로운 metric 값이 생성, 수집되는 것을 확인한다.&lt;br /&gt;
+쿠버네티스 환경에서 다음 명령어를 통해 Prometheus를 위한 port-forwarding을 설정한다.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Prometheus UI를 통해 새로운 metric 값을 확인한다.&lt;br /&gt;
+제공된 링크는 Prometheus UI를 열고, &lt;strong&gt;istio_mongo_received_bytes&lt;/strong&gt; 값 쿼리를 실행한다.&lt;br /&gt;
+&lt;strong&gt;Console&lt;/strong&gt; 탭에 있는 테이블은 아래와 비슷한 entries 를 포함하고 있다.&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;istio_mongo_received_bytes{destination_version=&quot;v1&quot;,instance=&quot;172.17.0.18:42422&quot;,job=&quot;istio-mesh&quot;,source_service=&quot;ratings-v2&quot;,source_version=&quot;v2&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;understanding-tcp-telemetry-collection&quot;&gt;Understanding TCP telemetry collection&lt;/h1&gt;
+&lt;p&gt;이 테스크에서 Mixer가 매쉬 안에 있는 TCP 서비스에게 모든 트래픽에 대한 새로운 metric을 자동으로 생성하고, 보고하도록 지시한 istio 설정을 추가햇습니다.&lt;br /&gt;
+Collecting Metrics and Logs Task와 유사하게, 새로운 설정은 instance, handler, rule로 구성되어 있습니다. metric 집한 구성요소의 완벽한 설명을 위한 task를 확인해보세요.&lt;br /&gt;
+TCP 서비스의 Metric 집합은 인스턴스에서 사용할 수 있는 제한된 특성 집합에서만 다릅니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;tcp-attributes&quot;&gt;TCP attributes&lt;/h2&gt;
+&lt;p&gt;몇몇 TCP-specific 속성들은 istio 에서 TCP 규칙과 컨트롤을 활성화 합니다. 이러한 속성들은 server-side Envoy proxies 에서 생성됩니다. 이러한 속성들은 연결이 살아있을때 (주기적 리포팅), 연결이 수립된 Mixter에게 주기적으로 전송되고, 연결종료를 전송합니다. (마지막 리포트)&lt;br /&gt;
+기본 리포트 주기는 10초이고, 최소 1초 이상이어야 합니다. 추가적으로 context 속성들은 규칙안에서
+&lt;strong&gt;http&lt;/strong&gt; 와 &lt;strong&gt;tcp&lt;/strong&gt; 프로토콜을 구분할 수 있는 기느을 제공합니다.&lt;br /&gt;
+&lt;img src=&quot;../assets/images/istio/tcp_attributes.svg&quot; alt=&quot;TCP attributes&quot; /&gt;&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>sysmoon</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="k8s" />
+      
+
+      
+        <summary type="html">Collecting Metric 이번 테스크에서는 서비스 매쉬를 위해 어떻게 telemetry 정보를 자동으로 수집하기 위한 설정을 하는지 보여준다. 마지막 테스크에서는 TCP 서비스를 콜하기 위한 새로운 metric이 활성화 될 것이다.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">Istio Telemetry (Collecting Metric)</title>
-      <link href="/istio-collecting_metrics" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metric)" />
+      <link href="/istio-telemetry_metrics_collecting_metrics" rel="alternate" type="text/html" title="Istio Telemetry (Collecting Metric)" />
       <published>2018-05-28T19:00:00+09:00</published>
       <updated>2018-05-28T19:00:00+09:00</updated>
-      <id>/istio-collecting_metrics</id>
-      <content type="html" xml:base="/istio-collecting_metrics">&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+      <id>/istio-telemetry_metrics_collecting_metrics</id>
+      <content type="html" xml:base="/istio-telemetry_metrics_collecting_metrics">&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&quot;../assets/images/istio/istio_archi.png&quot; alt=&quot;istio architecture&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;istio는 각 pods의 Envoy side_car_proxy(Envoy) 에서 생성된 telemery 정보를 Mixer에 통합 수집하여 관리한다.
