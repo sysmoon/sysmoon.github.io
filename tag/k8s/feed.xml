@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/k8s/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-06-03T19:19:08+09:00</updated>
+  <updated>2019-06-03T19:22:25+09:00</updated>
   <id>/tag/k8s/feed.xml</id>
 
   
@@ -44,8 +44,8 @@
 
   
     <entry>
-      <title type="html">Visualizing metrics with Grafana</title>
-      <link href="/istio-telemetry_visualizing_metrics_with_grafana" rel="alternate" type="text/html" title="Visualizing metrics with Grafana" />
+      <title type="html">Istio Telemetru (Visualizing metrics with Grafana)</title>
+      <link href="/istio-telemetry_visualizing_metrics_with_grafana" rel="alternate" type="text/html" title="Istio Telemetru (Visualizing metrics with Grafana)" />
       <published>2018-06-03T19:00:00+09:00</published>
       <updated>2018-06-03T19:00:00+09:00</updated>
       <id>/istio-telemetry_visualizing_metrics_with_grafana</id>
@@ -390,8 +390,8 @@ istio_double_request_count{destination=&quot;istio-policy&quot;,instance=&quot;1
     </entry>
   
     <entry>
-      <title type="html">Visualizing metrics with Grafana</title>
-      <link href="/istio-tracing_overview" rel="alternate" type="text/html" title="Visualizing metrics with Grafana" />
+      <title type="html">Istio Telemetry (Tracing Overview)</title>
+      <link href="/istio-tracing_overview" rel="alternate" type="text/html" title="Istio Telemetry (Tracing Overview)" />
       <published>2018-05-28T19:00:00+09:00</published>
       <updated>2018-05-28T19:00:00+09:00</updated>
       <id>/istio-tracing_overview</id>
