@@ -43,7 +43,7 @@ Bookinfo sample 어플케이션이 이 task를 위해 예제로 활용되기 때
     
       
       <item>
-        <title>Istio Telemetry (Collecting Metric)</title>
+        <title>Mac 개발환경 구축</title>
         
           <description>&lt;h1 id=&quot;introduce&quot;&gt;Introduce&lt;/h1&gt;
 &lt;p&gt;맥 개발환경을 세팅하고, 설치 메뉴얼을 정리하자!&lt;/p&gt;
@@ -54,6 +54,20 @@ Bookinfo sample 어플케이션이 이 task를 위해 예제로 활용되기 때
         <link>
         /macdevenv</link>
         <guid isPermaLink="true">/macdevenv</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Visualizing metrics with Grafana</title>
+        
+          <description>
+</description>
+        
+        <pubDate>Mon, 28 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-tracing_overview</link>
+        <guid isPermaLink="true">/istio-tracing_overview</guid>
       </item>
       
     
