@@ -134,6 +134,36 @@ spec:
     Created config virtual-service/default/reviews at revision 3003
     Created config virtual-service/default/ratings at revision 3004
     ```
+
+    samples/bookinfo/networking/virtual-service-ratings-db.yaml 
+    ```
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+    name: reviews
+    spec:
+    hosts:
+    - reviews
+    http:
+    - route:
+        - destination:
+            host: reviews
+            subset: v3
+    ---
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+    name: ratings
+    spec:
+    hosts:
+    - ratings
+    http:
+    - route:
+        - destination:
+            host: ratings
+            subset: v2
+    ---
+    ```
 3. 샘플 애플리케이션으로 트래픽을 전송한다.  
 Bookinfo 샘플 테스를 위해 http://$GATEWAY_URL/productpage 웹브라우저로 방문하거나 아래 명령어를 실행한다.
 ```
