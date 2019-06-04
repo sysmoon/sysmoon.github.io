@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: Istio Telemetry (1. Collecting Logs)
+title: Istio Telemetry (5. Collecting Logs)
 date: 2019-06-04 08:26:28 -0400
 categories: istio 
 ---
