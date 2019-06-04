@@ -4,7 +4,7 @@ date: 2019-06-04 08:26:28 -0400
 categories: istio
 ---
 
-# Collecting Metric  
+# Collecting Metric 1
 이번 작업은 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio 설정 방법에 대해 알아본다.
 마지막 부분에 Service Mesh 안에서 새로운 서비스를 위한 Metric이 활성화 된다.
 Bookinfo 샘플 어플케이션이 이 작업을 위해 예제로 활용되기 때문에 먼저 Bookinfo 애플리케이션이 배포되어 있어야 한다.
