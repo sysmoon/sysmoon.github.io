@@ -36,7 +36,7 @@ grafana   10.59.247.103   <none>        3000/TCP   2m
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000 &
 ```
 웹브라우저에서 [http://localhost:3000/dashboard/db/istio-mesh-dashboard](http://localhost:3000/dasboard/db/istio-mesh-dashboard) 방문해보세요.  
-Istio Dashboard 다음과 유사하게 보여질 것이다.
+Istio Dashboard 다음과 유사하게 보여질 것이다.  
 ![Istio Dashboard](../assets/images/istio/grafana-istio-dashboard.png)
 4. Service Mesh로 트래픽 전송
 Bookinfo 샘플의 경우 http://$GATEWAY_URL/productpage 페이지를 웹에서 접속하거나 아래 명령어를 통해 요청하세요.
