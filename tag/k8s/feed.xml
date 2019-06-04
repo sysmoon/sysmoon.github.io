@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/k8s/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-06-04T14:23:28+09:00</updated>
+  <updated>2019-06-04T14:25:11+09:00</updated>
   <id>/tag/k8s/feed.xml</id>
 
   
@@ -320,15 +320,15 @@ Bookinfo 샘플 어플케이션이 이 작업을 위해 예제로 활용되기 �
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;collecting-new-metrics&quot;&gt;Collecting new metrics&lt;/h1&gt;
-&lt;ul&gt;
+&lt;ol&gt;
   &lt;li&gt;새로운 metric 정보를 수집하기 위해 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집한다.
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 만약, istio &amp;gt;= 1.1.2 일 경우, 아래 yaml configuration 적용 필요
- kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;만약, istio &amp;gt;= 1.1.2 일 경우, 아래 yaml configuration 적용 필요
+kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;samples/bookinfo/telemetry/metrics-crd.yaml&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Configuration for metric instances
@@ -375,25 +375,25 @@ spec:
     instances:
     - doublerequestcount.metric
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
+&lt;ol&gt;
   &lt;li&gt;샘플 애플리케이션으로 트래픽 전송&lt;br /&gt;
 Bookinfo (sample application)에 traffic을 전송한다. Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라우징 하거나, 아래와 같이 curl을 이용하여 http request 수행한다.
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl http://$GATEWAY_URL/productpage
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;참고로 minikube 환경에서 GATEWAY_URL을 설정하기 위한 방법은 아래 스크립트를 참고한다.&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name==&quot;http2&quot;)].nodePort}')
 export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name==&quot;https&quot;)].nodePort}')
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
+&lt;ol&gt;
   &lt;li&gt;새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;amp;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;새로운 metric value 값 확인을 위해 &lt;a href=&quot;http://localhost:9090/graph&quot;&gt;Prometheus UI&lt;/a&gt; 웹브라우저 접속하여 확인한다. 위 제공된 링크는 Prometheus UI 페이지를 열어서, istio_double_request_count metric 값을 쿼리를 실행한다. Console Tab 테이블에 표시된 entry 정보는 다음과 비슷하다.&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;istio_double_request_count{destination=&quot;details-v1&quot;,instance=&quot;172.17.0.12:42422&quot;,job=&quot;istio-mesh&quot;,message=&quot;twice the fun!&quot;,reporter=&quot;client&quot;,source=&quot;productpage-v1&quot;}   8
