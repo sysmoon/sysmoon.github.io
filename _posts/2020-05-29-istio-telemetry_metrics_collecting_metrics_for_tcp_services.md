@@ -190,4 +190,4 @@ TCP 서비스의 Metric 집합은 인스턴스에서 사용할 수 있는 제한
 몇몇 TCP-specific 속성들은 istio 에서 TCP 규칙과 컨트롤을 활성화 합니다. 이러한 속성들은 server-side Envoy proxies 에서 생성됩니다. 이러한 속성들은 연결이 살아있을때 (주기적 리포팅), 연결이 수립된 Mixter에게 주기적으로 전송되고, 연결종료를 전송합니다. (마지막 리포트)  
 기본 리포트 주기는 10초이고, 최소 1초 이상이어야 합니다. 추가적으로 context 속성들은 규칙안에서
 **http** 와 **tcp** 프로토콜을 구분할 수 있는 기느을 제공합니다.  
-![TCP attributes](../assets/images/istio/tcp_attributes.svg)
+![TCP attributes](/assets/images/istio/tcp_attributes.svg)

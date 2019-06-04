@@ -39,7 +39,7 @@ kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=pr
 웹페이지 상단 "Expression" 입력창에 아래 텍스트 **istio_requests_total** 를 입력한다.  
 그리고 **Execute** 버튼을 클릭한다.  
 결과는 아래와 유사하게 나올 것이다.
-![Prometheus Query Result][../assets/images/istio/prometheus_query_result.png]  
+![Prometheus Query Result][/assets/images/istio/prometheus_query_result.png]  
 
 다른 쿼리를 시도해보면:
 - **productpage** 서비스에게 전송한 모든 요청 횟수

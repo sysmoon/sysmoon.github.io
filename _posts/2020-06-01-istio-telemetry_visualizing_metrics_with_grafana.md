@@ -37,7 +37,7 @@ kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=gr
 ```
 웹브라우저에서 [http://localhost:3000/dashboard/db/istio-mesh-dashboard](http://localhost:3000/dasboard/db/istio-mesh-dashboard) 방문해보세요.  
 Istio Dashboard 다음과 유사하게 보여질 것이다.  
-![Istio Dashboard](assets/images/istio/grafana-istio-dashboard.png)
+![Istio Dashboard](/assets/images/istio/grafana-istio-dashboard.png)
 4. Service Mesh로 트래픽 전송
 Bookinfo 샘플의 경우 http://$GATEWAY_URL/productpage 페이지를 웹에서 접속하거나 아래 명령어를 통해 요청하세요.
 ```
@@ -49,18 +49,18 @@ $GATEWAY_URL은 Bookinfo 샘플에서 설정된 값입니다.
 
 약간의 트래픽을 생성하기 위해 페이지를 몇번 갱신한다. (또는 명령얼 몇번 더 수행한다.)  
 Istio Dashboard를 다시 한번 본다. 생성된 트래픽이 반양되어 있어야 한다. 다음과 비슷하게 보여진다.
-![dashboard-with-traffic](../assets/images/istio/dashboard-with-traffic.png)
+![dashboard-with-traffic](/assets/images/istio/dashboard-with-traffic.png)
 이 대시보드는 Mesh 안에 있는 서비스와 워크로드와 함께 Mesh 의 전체적인 view를 제공한다.  
 당신은 아래 설명된 구체적인 대시보드 탐색을 통해 서비스와 워크로드에 대한 디테일한 정보를 얻을 수 있다.
 5. 서비스 대시보드 시각화
 Grafana 대비보드 왼쪽 코너에 있는 탐색 메뉴로부터 Istio Dashboard 를 탐색하거나 [http://localhost:3000/dashboard/db/istio-service-dashboard](http://localhost:3000/dashboard/db/istio-service-dashboard) 웹브라우징하여 방문 가능하다.  
 istio 서비스 대시보드는 아래와 유사하다.
-![istio-service-dashboard.png](../assets/images/istio/istio-service-dashboard.png)
+![istio-service-dashboard.png](/assets/images/istio/istio-service-dashboard.png)
 이 대시보드는 서비스를 위한 client workloads(서비스를 호출하는 workload)와 service workload(이 서비스를 제공하는 워크로드) 그리고 서비스에 대한 자세한 metrics를 제공한다.
 6. 워크로드 대시보드 시각화
 Grafana 대시보드 왼쪽 코너 탐색 메뉴에서 당신은 Istio 워크로드 대시보드를 탐색하거나 [http://localhost:3000/dashboard/db/istio-workload-dashboard](http://localhost:3000/dashboard/db/istio-workload-dashboard) 웹브라우징을 통해 접속 가능하다.  
 Istio 워크로드 대시보드는 아래와 유사하다.
-![istio-workload-dashboard](../assets/images/istio/istio-workload-dashboard.png)
+![istio-workload-dashboard](/assets/images/istio/istio-workload-dashboard.png)
 이 대시보드는 각 워크로드와 inboud 워크로드(이 워크로드에 요청을 보내는 워크로드) 와 해당 워크로드에 대한 outbound service(이 워크로드가 요청을 전송하는 서비스) 에 대한 자세한 mertics를 제공한다.
 
 # About the Grafana add-on
