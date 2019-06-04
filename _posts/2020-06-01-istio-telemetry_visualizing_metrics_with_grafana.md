@@ -11,7 +11,7 @@ categories: istio
 # Before you begin
 - 쿠버네티스 클러스터에 Istio를 설치하세요. 만약 설치하는데 Helm을 사용한다면 Grafana add-on --set grafana.enabled=true 옵션을 활성화 하세요
 ```
-helm upgrade --install istio ./install/kubernetes/helm/istio --namespace istio-system --set grafana.enabled=true --set tracing.enabled=true --set tracing.provider=zipkin
+helm upgrade --install istio ./install/kubernetes/helm/istio --namespace istio-system --set grafana.enabled=true --set tracing.enabled=true 
 ```
 - Bookinfo 애플리케이션을 배포하세요
 
