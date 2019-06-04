@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/k8s/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-06-04T14:13:35+09:00</updated>
+  <updated>2019-06-04T14:15:19+09:00</updated>
   <id>/tag/k8s/feed.xml</id>
 
   
@@ -330,51 +330,64 @@ kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;samplesbookinfotelemetrymetrics-crdyaml&quot;&gt;samples/bookinfo/telemetry/metrics-crd.yaml&lt;/h3&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Configuration for metric instances
-apiVersion: &quot;config.istio.io/v1alpha2&quot;
+&lt;ul&gt;
+  &lt;li&gt;samples/bookinfo/telemetry/metrics-crd.yaml
+```
+    &lt;h1 id=&quot;configuration-for-metric-instances&quot;&gt;Configuration for metric instances&lt;/h1&gt;
+    &lt;p&gt;apiVersion: “config.istio.io/v1alpha2”
 kind: metric
 metadata:
-  name: doublerequestcount
-  namespace: istio-system
+name: doublerequestcount
+namespace: istio-system
 spec:
-  value: &quot;2&quot; # count each request twice
-  dimensions:
-    reporter: conditional((context.reporter.kind | &quot;inbound&quot;) == &quot;outbound&quot;, &quot;client&quot;, &quot;server&quot;)
-    source: source.workload.name | &quot;unknown&quot;
-    destination: destination.workload.name | &quot;unknown&quot;
-    message: '&quot;twice the fun!&quot;'
-  monitored_resource_type: '&quot;UNSPECIFIED&quot;'
----
-# Configuration for a Prometheus handler
-apiVersion: &quot;config.istio.io/v1alpha2&quot;
+value: “2” # count each request twice
+dimensions:
+  reporter: conditional((context.reporter.kind | “inbound”) == “outbound”, “client”, “server”)
+  source: source.workload.name | “unknown”
+  destination: destination.workload.name | “unknown”
+  message: ‘“twice the fun!”’
+monitored_resource_type: ‘“UNSPECIFIED”’
+—&lt;/p&gt;
+    &lt;h1 id=&quot;configuration-for-a-prometheus-handler&quot;&gt;Configuration for a Prometheus handler&lt;/h1&gt;
+    &lt;p&gt;apiVersion: “config.istio.io/v1alpha2”
 kind: prometheus
 metadata:
-  name: doublehandler
-  namespace: istio-system
+name: doublehandler
+namespace: istio-system
 spec:
-  metrics:
-  - name: double_request_count # Prometheus metric name
-    instance_name: doublerequestcount.metric.istio-system # Mixer instance name (fully-qualified)
-    kind: COUNTER
-    label_names:
-    - reporter
-    - source
-    - destination
-    - message
----
-# Rule to send metric instances to a Prometheus handler
-apiVersion: &quot;config.istio.io/v1alpha2&quot;
+metrics:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;name: double_request_count # Prometheus metric name
+instance_name: doublerequestcount.metric.istio-system # Mixer instance name (fully-qualified)
+kind: COUNTER
+label_names:
+        &lt;ul&gt;
+          &lt;li&gt;reporter&lt;/li&gt;
+          &lt;li&gt;source&lt;/li&gt;
+          &lt;li&gt;destination&lt;/li&gt;
+          &lt;li&gt;
+            &lt;h2 id=&quot;message&quot;&gt;message&lt;/h2&gt;
+            &lt;h1 id=&quot;rule-to-send-metric-instances-to-a-prometheus-handler&quot;&gt;Rule to send metric instances to a Prometheus handler&lt;/h1&gt;
+            &lt;p&gt;apiVersion: “config.istio.io/v1alpha2”
 kind: rule
 metadata:
-  name: doubleprom
-  namespace: istio-system
+name: doubleprom
+namespace: istio-system
 spec:
-  actions:
-  - handler: doublehandler.prometheus
-    instances:
-    - doublerequestcount.metric
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+actions:&lt;/p&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;handler: doublehandler.prometheus
+instances:
+        &lt;ul&gt;
+          &lt;li&gt;doublerequestcount.metric
+```&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;ol&gt;
   &lt;li&gt;샘플 애플리케이션으로 트래픽 전송
