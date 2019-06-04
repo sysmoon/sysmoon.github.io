@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-06-04T14:15:19+09:00</updated><id>/</id><title type="html">sysmoon’s blog</title><subtitle>문형권 기술블로그 (sysmoon@sk.com)</subtitle><entry><title type="html">Istio Telemetry (4. Visualizing metrics with Grafana)</title><link href="/istio-telemetry_visualizing_metrics_with_grafana" rel="alternate" type="text/html" title="Istio Telemetry (4. Visualizing metrics with Grafana)" /><published>2018-06-03T19:00:00+09:00</published><updated>2018-06-03T19:00:00+09:00</updated><id>/istio-telemetry_visualizing_metrics_with_grafana</id><content type="html" xml:base="/istio-telemetry_visualizing_metrics_with_grafana">&lt;p&gt;이번 task 에서는 mesh 트래픽을 모니터링 하기 위한 Istio Dashboard 설정과 사용 방법에 대해 소개한다.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-06-04T14:17:59+09:00</updated><id>/</id><title type="html">sysmoon’s blog</title><subtitle>문형권 기술블로그 (sysmoon@sk.com)</subtitle><entry><title type="html">Istio Telemetry (4. Visualizing metrics with Grafana)</title><link href="/istio-telemetry_visualizing_metrics_with_grafana" rel="alternate" type="text/html" title="Istio Telemetry (4. Visualizing metrics with Grafana)" /><published>2018-06-03T19:00:00+09:00</published><updated>2018-06-03T19:00:00+09:00</updated><id>/istio-telemetry_visualizing_metrics_with_grafana</id><content type="html" xml:base="/istio-telemetry_visualizing_metrics_with_grafana">&lt;p&gt;이번 task 에서는 mesh 트래픽을 모니터링 하기 위한 Istio Dashboard 설정과 사용 방법에 대해 소개한다.
 이 task 중에 당신은 istio add-on Grafana 와 Service Mesh 트래픽 데이터를 보기 위한 web-based 인터페이스를 사용하게 될 것이다.&lt;/p&gt;
 
 &lt;h1 id=&quot;before-you-begin&quot;&gt;Before you begin&lt;/h1&gt;
@@ -178,7 +178,7 @@ kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 &lt;/ol&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;samples/bookinfo/telemetry/metrics-crd.yaml
+  &lt;li&gt;samples/bookinfo/telemetry/metrics-crd.yaml&lt;br /&gt;
 ```
     &lt;h1 id=&quot;configuration-for-metric-instances&quot;&gt;Configuration for metric instances&lt;/h1&gt;
     &lt;p&gt;apiVersion: “config.istio.io/v1alpha2”
