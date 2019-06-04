@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/k8s/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2019-06-04T14:12:27+09:00</updated>
+  <updated>2019-06-04T14:13:35+09:00</updated>
   <id>/tag/k8s/feed.xml</id>
 
   
@@ -330,9 +330,8 @@ kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# samples/bookinfo/telemetry/metrics-crd.yaml
-
-# Configuration for metric instances
+&lt;h3 id=&quot;samplesbookinfotelemetrymetrics-crdyaml&quot;&gt;samples/bookinfo/telemetry/metrics-crd.yaml&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Configuration for metric instances
 apiVersion: &quot;config.istio.io/v1alpha2&quot;
 kind: metric
 metadata:
