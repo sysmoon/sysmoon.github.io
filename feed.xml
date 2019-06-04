@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-06-04T14:17:59+09:00</updated><id>/</id><title type="html">sysmoon’s blog</title><subtitle>문형권 기술블로그 (sysmoon@sk.com)</subtitle><entry><title type="html">Istio Telemetry (4. Visualizing metrics with Grafana)</title><link href="/istio-telemetry_visualizing_metrics_with_grafana" rel="alternate" type="text/html" title="Istio Telemetry (4. Visualizing metrics with Grafana)" /><published>2018-06-03T19:00:00+09:00</published><updated>2018-06-03T19:00:00+09:00</updated><id>/istio-telemetry_visualizing_metrics_with_grafana</id><content type="html" xml:base="/istio-telemetry_visualizing_metrics_with_grafana">&lt;p&gt;이번 task 에서는 mesh 트래픽을 모니터링 하기 위한 Istio Dashboard 설정과 사용 방법에 대해 소개한다.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-06-04T14:18:51+09:00</updated><id>/</id><title type="html">sysmoon’s blog</title><subtitle>문형권 기술블로그 (sysmoon@sk.com)</subtitle><entry><title type="html">Istio Telemetry (4. Visualizing metrics with Grafana)</title><link href="/istio-telemetry_visualizing_metrics_with_grafana" rel="alternate" type="text/html" title="Istio Telemetry (4. Visualizing metrics with Grafana)" /><published>2018-06-03T19:00:00+09:00</published><updated>2018-06-03T19:00:00+09:00</updated><id>/istio-telemetry_visualizing_metrics_with_grafana</id><content type="html" xml:base="/istio-telemetry_visualizing_metrics_with_grafana">&lt;p&gt;이번 task 에서는 mesh 트래픽을 모니터링 하기 위한 Istio Dashboard 설정과 사용 방법에 대해 소개한다.
 이 task 중에 당신은 istio add-on Grafana 와 Service Mesh 트래픽 데이터를 보기 위한 web-based 인터페이스를 사용하게 될 것이다.&lt;/p&gt;
 
 &lt;h1 id=&quot;before-you-begin&quot;&gt;Before you begin&lt;/h1&gt;
@@ -177,64 +177,51 @@ kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;samples/bookinfo/telemetry/metrics-crd.yaml&lt;br /&gt;
-```
-    &lt;h1 id=&quot;configuration-for-metric-instances&quot;&gt;Configuration for metric instances&lt;/h1&gt;
-    &lt;p&gt;apiVersion: “config.istio.io/v1alpha2”
+&lt;p&gt;samples/bookinfo/telemetry/metrics-crd.yaml&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Configuration for metric instances
+apiVersion: &quot;config.istio.io/v1alpha2&quot;
 kind: metric
 metadata:
-name: doublerequestcount
-namespace: istio-system
+  name: doublerequestcount
+  namespace: istio-system
 spec:
-value: “2” # count each request twice
-dimensions:
-  reporter: conditional((context.reporter.kind | “inbound”) == “outbound”, “client”, “server”)
-  source: source.workload.name | “unknown”
-  destination: destination.workload.name | “unknown”
-  message: ‘“twice the fun!”’
-monitored_resource_type: ‘“UNSPECIFIED”’
-—&lt;/p&gt;
-    &lt;h1 id=&quot;configuration-for-a-prometheus-handler&quot;&gt;Configuration for a Prometheus handler&lt;/h1&gt;
-    &lt;p&gt;apiVersion: “config.istio.io/v1alpha2”
+  value: &quot;2&quot; # count each request twice
+  dimensions:
+    reporter: conditional((context.reporter.kind | &quot;inbound&quot;) == &quot;outbound&quot;, &quot;client&quot;, &quot;server&quot;)
+    source: source.workload.name | &quot;unknown&quot;
+    destination: destination.workload.name | &quot;unknown&quot;
+    message: '&quot;twice the fun!&quot;'
+  monitored_resource_type: '&quot;UNSPECIFIED&quot;'
+---
+# Configuration for a Prometheus handler
+apiVersion: &quot;config.istio.io/v1alpha2&quot;
 kind: prometheus
 metadata:
-name: doublehandler
-namespace: istio-system
+  name: doublehandler
+  namespace: istio-system
 spec:
-metrics:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;name: double_request_count # Prometheus metric name
-instance_name: doublerequestcount.metric.istio-system # Mixer instance name (fully-qualified)
-kind: COUNTER
-label_names:
-        &lt;ul&gt;
-          &lt;li&gt;reporter&lt;/li&gt;
-          &lt;li&gt;source&lt;/li&gt;
-          &lt;li&gt;destination&lt;/li&gt;
-          &lt;li&gt;
-            &lt;h2 id=&quot;message&quot;&gt;message&lt;/h2&gt;
-            &lt;h1 id=&quot;rule-to-send-metric-instances-to-a-prometheus-handler&quot;&gt;Rule to send metric instances to a Prometheus handler&lt;/h1&gt;
-            &lt;p&gt;apiVersion: “config.istio.io/v1alpha2”
+  metrics:
+  - name: double_request_count # Prometheus metric name
+    instance_name: doublerequestcount.metric.istio-system # Mixer instance name (fully-qualified)
+    kind: COUNTER
+    label_names:
+    - reporter
+    - source
+    - destination
+    - message
+---
+# Rule to send metric instances to a Prometheus handler
+apiVersion: &quot;config.istio.io/v1alpha2&quot;
 kind: rule
 metadata:
-name: doubleprom
-namespace: istio-system
+  name: doubleprom
+  namespace: istio-system
 spec:
-actions:&lt;/p&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;handler: doublehandler.prometheus
-instances:
-        &lt;ul&gt;
-          &lt;li&gt;doublerequestcount.metric
-```&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+  actions:
+  - handler: doublehandler.prometheus
+    instances:
+    - doublerequestcount.metric
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ol&gt;
   &lt;li&gt;샘플 애플리케이션으로 트래픽 전송
