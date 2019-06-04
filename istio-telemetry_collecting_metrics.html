@@ -191,15 +191,15 @@ Bookinfo 샘플 어플케이션이 이 작업을 위해 예제로 활용되기 �
 </ul>
 
 <h1 id="collecting-new-metrics">Collecting new metrics</h1>
-<ol>
+<ul>
   <li>새로운 metric 정보를 수집하기 위해 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
 </code></pre></div>    </div>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>만약, istio &gt;= 1.1.2 일 경우, 아래 yaml configuration 적용 필요
-kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 만약, istio &gt;= 1.1.2 일 경우, 아래 yaml configuration 적용 필요
+ kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 </code></pre></div>    </div>
   </li>
-</ol>
+</ul>
 
 <p>samples/bookinfo/telemetry/metrics-crd.yaml</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Configuration for metric instances
@@ -246,25 +246,25 @@ spec:
     instances:
     - doublerequestcount.metric
 </code></pre></div></div>
-<ol>
-  <li>샘플 애플리케이션으로 트래픽 전송
+<ul>
+  <li>샘플 애플리케이션으로 트래픽 전송<br />
 Bookinfo (sample application)에 traffic을 전송한다. Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라우징 하거나, 아래와 같이 curl을 이용하여 http request 수행한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://$GATEWAY_URL/productpage
 </code></pre></div>    </div>
   </li>
-</ol>
+</ul>
 
 <p>참고로 minikube 환경에서 GATEWAY_URL을 설정하기 위한 방법은 아래 스크립트를 참고한다.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
 export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 </code></pre></div></div>
-<ol>
+<ul>
   <li>새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &amp;
 </code></pre></div>    </div>
   </li>
-</ol>
+</ul>
 
 <p>새로운 metric value 값 확인을 위해 <a href="http://localhost:9090/graph">Prometheus UI</a> 웹브라우저 접속하여 확인한다. 위 제공된 링크는 Prometheus UI 페이지를 열어서, istio_double_request_count metric 값을 쿼리를 실행한다. Console Tab 테이블에 표시된 entry 정보는 다음과 비슷하다.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>istio_double_request_count{destination="details-v1",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="client",source="productpage-v1"}   8
