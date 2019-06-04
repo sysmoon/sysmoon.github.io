@@ -5,8 +5,8 @@ date: 2019-05-30 08:26:28 -0400
 categories: istio 
 ---
 
-# Collecting Metric  
-이번 테스크에서는 Prometheus를 활용헤ㅐ서 istion를 위한 쿼리를 어떻게 하는지 보여준다.  
+# Querying Metrics from Prometheus 
+이번 테스크에서는 Prometheus를 활용헤ㅐ서 istio 쿼리를 어떻게 하는지 보여준다.  
 이 테스크의 일 부분으로써 metric 값 쿼리를 위한 web-based 인터페이스를 사용할 계획이다.  
 이 task 전체에서 Bookinfo 샘플 애플리케이션이 사용된다.
 
@@ -36,9 +36,9 @@ kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=pr
 ```
 브러우저를 통해 [http://localhost:9090/graph](http://localhost:9090/graph) 접속한다.  
 4. Promethues 쿼리를 실행한다.
-웹페이지 상단 "Expression" 입력창에 아래 텍스트 **istio_requests_totla** 를 입력한다.  
+웹페이지 상단 "Expression" 입력창에 아래 텍스트 **istio_requests_total** 를 입력한다.  
 그리고 **Execute** 버튼을 클릭한다.  
-결과는 아라와 유사하게 나올 것이다.
+결과는 아래와 유사하게 나올 것이다.
 ![Prometheus Query Result][../assets/images/istio/prometheus_query_result.png]  
 
 다른 쿼리를 시도해보면:
