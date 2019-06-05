@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
   name             : "sysmoon"
-  avatar           : "/assets/images/sysmoon.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/sysmoon.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "DevOps"
   location         : "SKtelecom ICT Tech Center"
   email            : "sysmoon@sk.com"
