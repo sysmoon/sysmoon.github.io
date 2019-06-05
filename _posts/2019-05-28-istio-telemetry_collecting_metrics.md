@@ -3,6 +3,7 @@ layout: splash
 title: Istio Telemetry (1. Collecting Metrics)
 date: 2019-05-28 08:26:28 -0400
 categories: istio 
+tags: [istio, telemetry] 
 ---
 
 # Collecting Metric  

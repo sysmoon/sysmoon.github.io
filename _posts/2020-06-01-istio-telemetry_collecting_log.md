@@ -3,6 +3,7 @@ layout: splash
 title: Istio Telemetry (5. Collecting Logs)
 date: 2019-06-04 08:26:28 -0400
 categories: istio 
+tags: [istio, telemetry]
 ---
 
 이 작업은 istio 가 service mesh 안에서 자동으로 telemetry 정보를 수집하는 방법에 대해 보여준다. 마지막 작업에서는 service mesh 안에서 new log 스트림이 서비스 호출을 위해 활성화된다.  

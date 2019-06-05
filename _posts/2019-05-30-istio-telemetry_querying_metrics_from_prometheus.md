@@ -3,6 +3,7 @@ layout: splash
 title: Istio Telemetry (3. Querying Metrics from Prometheus)
 date: 2019-05-30 08:26:28 -0400
 categories: istio 
+tags: [istio, telemetry]
 ---
 
 # Querying Metrics from Prometheus 

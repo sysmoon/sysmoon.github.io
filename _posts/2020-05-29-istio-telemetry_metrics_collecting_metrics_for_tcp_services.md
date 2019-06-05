@@ -3,6 +3,7 @@ layout: splash
 title: Istio Telemetry (2. Collecting Metric for TCP services) 
 date: 2019-05-29 08:26:28 -0400
 categories: istio 
+tags: [istio, telemetry]
 ---
 
 # Collecting Metric  

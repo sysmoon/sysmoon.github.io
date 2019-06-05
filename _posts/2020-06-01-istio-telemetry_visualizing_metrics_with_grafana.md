@@ -3,6 +3,7 @@ layout: splash
 title: Istio Telemetry (4. Visualizing metrics with Grafana)
 date: 2019-05-30 08:26:28 -0400
 categories: istio 
+tags: [istio, telemetry]
 ---
 
 이번 task 에서는 mesh 트래픽을 모니터링 하기 위한 Istio Dashboard 설정과 사용 방법에 대해 소개한다.
