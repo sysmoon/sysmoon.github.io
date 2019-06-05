@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> - Articles</title>
+    <description>문형권 기술블로그 (sysmoon@sk.com)</description>
+    <link>
+    </link>
+    
+      
+      <item>
+        <title>Istio Telemetry (4. Visualizing metrics with Grafana)</title>
+        
+          <description>&lt;p&gt;이번 task 에서는 mesh 트래픽을 모니터링 하기 위한 Istio Dashboard 설정과 사용 방법에 대해 소개한다.
+이 task 중에 당신은 istio add-on Grafana 와 Service Mesh 트래픽 데이터를 보기 위한 web-based 인터페이스를 사용하게 될 것이다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 03 Jun 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-telemetry_visualizing_metrics_with_grafana</link>
+        <guid isPermaLink="true">/istio-telemetry_visualizing_metrics_with_grafana</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Istio Telemetry (5. Collecting Logs)</title>
+        
+          <description>&lt;p&gt;이 task는 Service Mesh를 위해 어떻게 자동 telemetry 수집을 위한 설정을 하는지 보여준다.&lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 03 Jun 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-logs_collecting_logs</link>
+        <guid isPermaLink="true">/istio-logs_collecting_logs</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Istio Telemetry (2. Collecting Metric for TCP services)</title>
+        
+          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+&lt;p&gt;이번 테스크에서는 서비스 매쉬를 위해 어떻게 telemetry 정보를 자동으로 수집하기 위한 설정을 하는지 보여준다. 마지막 테스크에서는 TCP 서비스를 콜하기 위한 새로운 metric이 활성화 될 것이다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 03 Jun 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-telemetry_metrics_collecting_metrics_for_tcp_services</link>
+        <guid isPermaLink="true">/istio-telemetry_metrics_collecting_metrics_for_tcp_services</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Istio Telemetry (1. Collecting Metrics)</title>
+        
+          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+&lt;p&gt;이번 작업은 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio 설정 방법에 대해 알아본다.
+마지막 부분에 Service Mesh 안에서 새로운 서비스를 위한 Metric이 활성화 된다.
+Bookinfo 샘플 어플케이션이 이 작업을 위해 예제로 활용되기 때문에 먼저 Bookinfo 애플리케이션이 배포되어 있어야 한다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 03 Jun 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-telemetry_collecting_metrics</link>
+        <guid isPermaLink="true">/istio-telemetry_collecting_metrics</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Mac 개발환경 구축</title>
+        
+          <description>&lt;h1 id=&quot;introduce&quot;&gt;Introduce&lt;/h1&gt;
+&lt;p&gt;맥 개발환경을 세팅하고, 설치 메뉴얼을 정리하자!&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 30 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /macdevenv</link>
+        <guid isPermaLink="true">/macdevenv</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Istio Telemetry (3. Querying Metrics from Prometheus)</title>
+        
+          <description>&lt;h1 id=&quot;collecting-metric&quot;&gt;Collecting Metric&lt;/h1&gt;
+&lt;p&gt;이번 테스크에서는 Prometheus를 활용헤ㅐ서 istion를 위한 쿼리를 어떻게 하는지 보여준다.&lt;br /&gt;
+이 테스크의 일 부분으로써 metric 값 쿼리를 위한 web-based 인터페이스를 사용할 계획이다.&lt;br /&gt;
+이 task 전체에서 Bookinfo 샘플 애플리케이션이 사용된다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 28 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /istio-telemetry_querying_metrics_from_prometheus</link>
+        <guid isPermaLink="true">/istio-telemetry_querying_metrics_from_prometheus</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Azure IoTHub</title>
+        
+          <description>&lt;h1 id=&quot;introduce&quot;&gt;Introduce&lt;/h1&gt;
+&lt;p&gt;Azure IotHub를 이용하여 다양한 IoT 디바이스를 관리하고, Telemetry 정보를 수집하여 Power BI로 분석 가능하다. 또한 IoT 디바이스를 Edge Computing으로 활용하여 IotHub 런타임 위에 ML Conference가 가능한 컨테이너를 내려 다양한 고급 분석이 가능하다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /azure-iotedge</link>
+        <guid isPermaLink="true">/azure-iotedge</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Azure Machine Learning Architecture</title>
+        
+          <description>&lt;h1 id=&quot;azure-ml-architecture&quot;&gt;Azure ML Architecture&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;../assets/images/az_ml_archi.png&quot; alt=&quot;Azure ML Architecture&quot; /&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 08 May 2018 19:00:00 +0900</pubDate>
+        <link>
+        /azure-ml-archi</link>
+        <guid isPermaLink="true">/azure-ml-archi</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Azure Machine Learning Reference Site</title>
+        
+          <description>&lt;h1 id=&quot;readme&quot;&gt;Readme&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;DevOps
+    &lt;ul&gt;
+      &lt;li&gt;Auzre ML, DevOps를 활용하여 데이터 분석 플랫폼 구축&lt;/li&gt;
+      &lt;li&gt;샘플 데이터 &amp;amp; 모델 기반으로 DevOps for AI 빌드/릴리즈 파이프라인 설계&lt;/li&gt;
+      &lt;li&gt;Model별 버전 관리&lt;/li&gt;
+      &lt;li&gt;Model 버전별 precision/recall 결과 비교하여 우수한 Model 자동 배포&lt;/li&gt;
+      &lt;li&gt;Azure DevOps 이용하여 신규버전 Container 생성(ACR), 이후 IoT Edge 배포&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Azure ML Service
+    &lt;ul&gt;
+      &lt;li&gt;Cloud 환경에서 Data + DL Model 학습 (object detection)&lt;/li&gt;
+      &lt;li&gt;DL Model Test dataset 활용하여 precision/recall 등 지표에 대한 계산/표시&lt;/li&gt;
+      &lt;li&gt;모델 선정 및 Model Container 생성 (versioning)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Iot Edge 연동
+    &lt;ul&gt;
+      &lt;li&gt;Vision AI Dev Kit Camera에 Model Container 배포&lt;/li&gt;
+      &lt;li&gt;Image와 Prediction한 결과를 Cloud로 전송하여 live prediction 결과 취합&lt;/li&gt;
+      &lt;li&gt;Bounding box와 confidence score 값 저장&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;개요&quot;&gt;개요&lt;/h1&gt;
+&lt;p&gt;기본 기술문서: https://docs.microsoft.com/en-us/azure/machine-learning/service/&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 27 Jul 2017 19:00:00 +0900</pubDate>
+        <link>
+        /azure-ml-tech-docs</link>
+        <guid isPermaLink="true">/azure-ml-tech-docs</guid>
+      </item>
+      
+    
+  </channel>
+</rss>
