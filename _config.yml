@@ -12,7 +12,7 @@
 
 theme                  : "minimal-mistakes-jekyll"
 remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "ko"
@@ -108,7 +108,7 @@ analytics:
 author:
   name             : "sysmoon"
   avatar           : "/assets/images/sysmoon.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Dev(AI/Security) Ops"
+  bio              : "DevOps"
   location         : "SKtelecom ICT Tech Center"
   email            : "sysmoon@sk.com"
   links:
