@@ -9,6 +9,7 @@ tags: [istio, telemetry]
 이번 섹션에서는 service mesh 안에서 telemetry 정보를 자동으로 수집하기 위한 istio 설정 방법을 소개하고자 합니다.
 마지막 부분에서는 mesh 내의 서비스 호출에 대해 **new log** 스트림을 사용할 수 있습니다.
 
+<br>
 # Before you begin
 ***
 - install istio 가이드에 따라 먼저 설치하세요
@@ -34,7 +35,7 @@ kubectl apply -f samples/httpbin/httpbin.yaml
 kubectl apply -f <(istioctl kube-inject -f samples/httpbin/httpbin.yaml)
 ```
 
-
+<br>
 # Enable Envoy's access logging
 ***
 **istio** configuration map을 아래와 같이 /dev/stdout으로 출력하도록 설정합나다.
@@ -49,6 +50,7 @@ helm template install/kubernetes/helm/istio --namespace=istio-system -x template
  - global.proxy.accessLogEncoding
  - global.proxy.accessLogFormat
 
+<br>
 # Test the access log
 ***
 1. sleep -> httpbin http request 전송
