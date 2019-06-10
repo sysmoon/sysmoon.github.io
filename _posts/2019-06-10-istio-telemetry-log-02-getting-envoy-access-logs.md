@@ -48,8 +48,9 @@ helm template install/kubernetes/helm/istio --namespace=istio-system -x template
 
 # Test the access log
 1. sleep -> httpbin http request 전송
+
 ```
- kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name}) -c sleep -- curl -v httpbin:8000/status/418
+kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name}) -c sleep -- curl -v httpbin:8000/status/418
 
 * Trying 172.21.13.94...
 * TCP_NODELAY set
