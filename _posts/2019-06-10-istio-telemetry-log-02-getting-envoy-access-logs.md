@@ -48,7 +48,6 @@ helm template install/kubernetes/helm/istio --namespace=istio-system -x template
 
 # Test the access log
 1. sleep -> httpbin http request 전송
-
 ```
 kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name}) -c sleep -- curl -v httpbin:8000/status/418
 
@@ -84,7 +83,7 @@ $ kubectl logs -l app=httpbin -c istio-proxy
 [2019-03-06T09:31:27.360Z] "GET /status/418 HTTP/1.1" 418 - "-" 0 135 5 2 "-" "curl/7.60.0" "d209e46f-9ed5-9b61-bbdd-43e22662702a" "httpbin:8000" "127.0.0.1:80" inbound|8000|http|httpbin.default.svc.cluster.local - 172.30.146.73:80 172.30.146.82:38618 outbound_.8000_._.httpbin.default.svc.cluster.local
 ```
 http request 에 해당하는 메시지는 각각 source 와 destination 의 Istio proxy, sleep 및 httpbin의 로그에 나타납니다.
-로그에서 HTTP verb (GET), HTTP path (/status/418), http response code (418)와 다른 **request-related information** 즉 http request와 관련된 다른 여러 항목들에 대해 확인 가능합니ㅏㄷ.
+로그에서 HTTP verb (GET), HTTP path (/status/418), http response code (418)와 다른 **request-related information** 즉 http request와 관련된 다른 여러 항목들에 대해 확인 가능합니다.
 
 # Clean up
 - sleep, httpbin 서비스를 내립니다.
