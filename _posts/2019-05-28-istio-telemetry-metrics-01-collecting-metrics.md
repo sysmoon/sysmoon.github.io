@@ -1,12 +1,12 @@
 ---
 layout: splash
-title: Istio Telemetry (1. Collecting Metrics)
+title: Istio Telemetry Metics (01. Collecting Metrics)
 date: 2019-05-28 08:26:28 -0400
-categories: istio 
-tags: [istio, telemetry] 
+categories: istio
+tags: [istio, telemetry]
 ---
 
-# Collecting Metric  
+# Collecting Metric
 이번 작업은 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio 설정 방법에 대해 알아본다.
 마지막 부분에 Service Mesh 안에서 새로운 서비스를 위한 Metric이 활성화 된다.
 Bookinfo 샘플 어플케이션이 이 작업을 위해 예제로 활용되기 때문에 먼저 Bookinfo 애플리케이션이 배포되어 있어야 한다.
@@ -71,7 +71,7 @@ spec:
     instances:
     - doublerequestcount.metric
 ```
-2. 샘플 애플리케이션으로 트래픽 전송  
+2. 샘플 애플리케이션으로 트래픽 전송
 Bookinfo (sample application)에 traffic을 전송한다. Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라우징 하거나, 아래와 같이 curl을 이용하여 http request 수행한다.
 ```
 curl http://$GATEWAY_URL/productpage

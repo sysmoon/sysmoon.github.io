@@ -1,12 +1,12 @@
 ---
 layout: splash
-title: Istio Telemetry (2. Collecting Metric for TCP services) 
+title: Istio Telemetry Metrics (02. Collecting Metric for TCP services)
 date: 2019-05-29 08:26:28 -0400
-categories: istio 
+categories: istio
 tags: [istio, telemetry]
 ---
 
-# Collecting Metric  
+# Collecting Metric
 이번 테스크에서는 서비스 매쉬를 위해 어떻게 telemetry 정보를 자동으로 수집하기 위한 설정을 하는지 보여준다. 마지막 테스크에서는 TCP 서비스를 콜하기 위한 새로운 metric이 활성화 될 것이다.
 
 ## Before you begin
@@ -136,7 +136,7 @@ spec:
     Created config virtual-service/default/ratings at revision 3004
     ```
 
-    samples/bookinfo/networking/virtual-service-ratings-db.yaml 
+    samples/bookinfo/networking/virtual-service-ratings-db.yaml
     ```
     apiVersion: networking.istio.io/v1alpha3
     kind: VirtualService
@@ -165,30 +165,30 @@ spec:
             subset: v2
     ---
     ```
-3. 샘플 애플리케이션으로 트래픽을 전송한다.  
+3. 샘플 애플리케이션으로 트래픽을 전송한다.
 Bookinfo 샘플 테스를 위해 http://$GATEWAY_URL/productpage 웹브라우저로 방문하거나 아래 명령어를 실행한다.
 ```
 curl http://$GATEWAY_URL/productpage
 ```
-4. 새로운 metric 값이 생성, 수집되는 것을 확인한다.  
+4. 새로운 metric 값이 생성, 수집되는 것을 확인한다.
 쿠버네티스 환경에서 다음 명령어를 통해 Prometheus를 위한 port-forwarding을 설정한다.
 ```
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &
 ```
-Prometheus UI를 통해 새로운 metric 값을 확인한다.  
-제공된 링크는 Prometheus UI를 열고, **istio_mongo_received_bytes** 값 쿼리를 실행한다.  
+Prometheus UI를 통해 새로운 metric 값을 확인한다.
+제공된 링크는 Prometheus UI를 열고, **istio_mongo_received_bytes** 값 쿼리를 실행한다.
 **Console** 탭에 있는 테이블은 아래와 비슷한 entries 를 포함하고 있다.
 ```
 istio_mongo_received_bytes{destination_version="v1",instance="172.17.0.18:42422",job="istio-mesh",source_service="ratings-v2",source_version="v2"}
 ```
 
 # Understanding TCP telemetry collection
-이 테스크에서 Mixer가 매쉬 안에 있는 TCP 서비스에게 모든 트래픽에 대한 새로운 metric을 자동으로 생성하고, 보고하도록 지시한 istio 설정을 추가햇습니다.  
-Collecting Metrics and Logs Task와 유사하게, 새로운 설정은 instance, handler, rule로 구성되어 있습니다. metric 집한 구성요소의 완벽한 설명을 위한 task를 확인해보세요.  
+이 테스크에서 Mixer가 매쉬 안에 있는 TCP 서비스에게 모든 트래픽에 대한 새로운 metric을 자동으로 생성하고, 보고하도록 지시한 istio 설정을 추가햇습니다.
+Collecting Metrics and Logs Task와 유사하게, 새로운 설정은 instance, handler, rule로 구성되어 있습니다. metric 집한 구성요소의 완벽한 설명을 위한 task를 확인해보세요.
 TCP 서비스의 Metric 집합은 인스턴스에서 사용할 수 있는 제한된 특성 집합에서만 다릅니다.
 
 ## TCP attributes
-몇몇 TCP-specific 속성들은 istio 에서 TCP 규칙과 컨트롤을 활성화 합니다. 이러한 속성들은 server-side Envoy proxies 에서 생성됩니다. 이러한 속성들은 연결이 살아있을때 (주기적 리포팅), 연결이 수립된 Mixter에게 주기적으로 전송되고, 연결종료를 전송합니다. (마지막 리포트)  
+몇몇 TCP-specific 속성들은 istio 에서 TCP 규칙과 컨트롤을 활성화 합니다. 이러한 속성들은 server-side Envoy proxies 에서 생성됩니다. 이러한 속성들은 연결이 살아있을때 (주기적 리포팅), 연결이 수립된 Mixter에게 주기적으로 전송되고, 연결종료를 전송합니다. (마지막 리포트)
 기본 리포트 주기는 10초이고, 최소 1초 이상이어야 합니다. 추가적으로 context 속성들은 규칙안에서
-**http** 와 **tcp** 프로토콜을 구분할 수 있는 기느을 제공합니다.  
+**http** 와 **tcp** 프로토콜을 구분할 수 있는 기느을 제공합니다.
 ![TCP attributes](/assets/images/istio/tcp_attributes.svg)
