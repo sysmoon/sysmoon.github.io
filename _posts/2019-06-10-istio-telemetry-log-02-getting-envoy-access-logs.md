@@ -41,14 +41,14 @@ helm template install/kubernetes/helm/istio --namespace=istio-system -x template
 **accessLogEncoding** 을 **JSON** 또는 **TEXT** 값으로 선택하여 설정 가능하다.
 또한 **accessLogFormat** 값 설정을 통해 access log 포멧을 커스터마이징 할 수 있다.
 
- **helm values:** 이용하여 통해 3가지 파라미터 설정이 가능하다.
+ **helm values:** 이용하여 통해 3가지 파라미터 설정이 가능합니다.
  - global.proxy.accessLogFile
  - global.proxy.accessLogEncoding
  - global.proxy.accessLogFormat
 
 # Test the access log
 1. sleep -> httpbin http request 전송
- ```
+```
  kubectl exec -it $(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name}) -c sleep -- curl -v httpbin:8000/status/418
 
 * Trying 172.21.13.94...
