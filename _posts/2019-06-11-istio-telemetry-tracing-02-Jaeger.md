@@ -17,7 +17,6 @@ sampling rate 설정을 위해 **pilot.traceSampling** 값을 사용하세요. �
 
 2. Bookinfo 샘플 애플리케션을 배포하세요.
 
-<br>
 # Accessing the dashboard
 ***
 1. jaeger 대시보드에 접속하기 위해 port forwarding 을 사용한다.
