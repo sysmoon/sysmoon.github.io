@@ -13,6 +13,7 @@ tracing 을 활성화하기 위해 **--set tracing.enabled=true** Helm install o
 ```
 traceing 옵션을 활성화하면, istio 가 tracing을 위해 사용하는 sampling rate를 설정할 수 있습니다.
 sampling rate 설정을 위해 **pilot.traceSampling** 값을 사용하세요. 기본 sampling rate 값은 1% 입니다.
+```
 
 2. Bookinfo 샘플 애플리케션을 배포하세요.
 
