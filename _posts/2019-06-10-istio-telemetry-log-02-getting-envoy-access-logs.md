@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: Istio Telemetry Logs (2. Getting Envoy's Access Logs)
+title: Istio Telemetry Logs (02. Getting Envoy's Access Logs)
 date: 2019-06-10 08:26:28 -0400
 categories: istio
 tags: [istio, telemetry]
