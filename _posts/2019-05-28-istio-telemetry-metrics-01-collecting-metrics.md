@@ -16,7 +16,7 @@ hands-on을 위해 Bookinfo 샘플 앱이 먼저 배포되어있어야 합니다
 이 작업은 Mixer가 default configuration (–configDefaultNamespace=istio-system) 으로 설정하여 기본 네임스페이스(istio-system)에 설치된 것으로 가정하고 진행합니다. 만약 다른 설정값을 사용하고 있다면, 위 기본 설정으로 업데이트가 필요합니다.
 
 ## Collecting new metrics
-1. 새로운 metric 정보를 수집하기 위해 아래 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집합니다.
+1.새로운 metric 정보를 수집하기 위해 아래 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집합니다.
 
 ```
 kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
@@ -72,8 +72,9 @@ spec:
   - handler: doublehandler.prometheus
     instances:
     - doublerequestcount.metric
-```
-2. Bookinfo 앱으로 트래픽 전송  
+```  
+
+2.Bookinfo 앱으로 트래픽 전송  
 Bookinfo App에 트래픽을 생성하기 위해 http://$GATEWAY_URL/productpage 웹브라우징 하거나, 아래와 같이 curl 을 사용합니다.
 
 ```
@@ -96,7 +97,7 @@ $ GATEWAY_URL
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 ```
 
-3. 새로운 metric 정보가 생생/수집 되고 있는지 확인합니다.  
+3.새로운 metric 정보가 생생/수집 되고 있는지 확인합니다.  
 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행합니다.
 
 ```
