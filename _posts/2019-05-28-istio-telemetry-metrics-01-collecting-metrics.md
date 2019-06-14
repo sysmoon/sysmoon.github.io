@@ -25,7 +25,7 @@ kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
    kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 ```
 
-### samples/bookinfo/telemetry/metrics-crd.yaml
+- samples/bookinfo/telemetry/metrics-crd.yaml
 ```
 # metric instance 설정
 apiVersion: "config.istio.io/v1alpha2"
@@ -92,11 +92,11 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 $ GATEWAY_URL
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 ```
+
 3. 새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행합니다.
 ```
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &
 ```
-
 
 위 metrics-crd.yaml 설정에서 정의한 metric instance 값 확인을 위해 <a href="http://localhost:9090/graph#%5B%7B%22range_input%22%3A%221h%22%2C%22expr%22%3A%22istio_double_request_count%22%2C%22tab%22%3A1%7D%5D">Prometheus UI</a>  Prometheus UI 접속하여 istio_double_request_count metric 값을 쿼리하면 Console Tab 테이블에 **istio_double_request_count** metric 값 확인이 가능합니다.
 ```
