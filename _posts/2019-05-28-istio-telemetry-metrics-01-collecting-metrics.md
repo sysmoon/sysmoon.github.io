@@ -7,27 +7,27 @@ tags: [istio, telemetry]
 ---
 
 # Collecting Metric
-이번 작업은 Service Mesh를 위해 자동으로 telemetry 정보를 수집하기 위한 istio 설정 방법에 대해 알아본다.
-마지막 부분에 Service Mesh 안에서 새로운 서비스를 위한 Metric이 활성화 된다.
-Bookinfo 샘플 어플케이션이 이 작업을 위해 예제로 활용되기 때문에 먼저 Bookinfo 애플리케이션이 배포되어 있어야 한다.
+이번 블로그에서는 Service Mesh 안에서 자동으로 telemetry 정보를 수집하기 위한 istio 설정 방법에 대해 알아봅니다.
+Service Mesh 안에서 새로운 metric을 정의하고, 자동으로 수집하기 위한 방법을 실습을 통해 확인 가능합니다.
+hands-on을 위해 Bookinfo 샘플 앱이 먼저 배포되어있어야 합니다.
 
 # Before you begin
-- 사용하고 있는 쿠버네티스 클러스터에 Istio를 설치하고, App을 배포한다. 이 작업은 Mixer가 default configuration (–configDefaultNamespace=istio-system) 이 설정된 것으로 가정한다.
-만약 다른 설정값을 사용하고 있다면, 위 설정으로 업데이트해야 한다.
+- 사용하고 있는 쿠버네티스 클러스터에 Istio를 설치하고, Bookinfo 앱을 배포합니다. 이 작업은 Mixer가 default configuration (–configDefaultNamespace=istio-system) 으로 설정하여 기본 네임스페이스(istio-system)에 설치된 것으로 가정하고 진행합니다.
+만약 다른 설정값을 사용하고 있다면, 위 기본 설정으로 업데이트가 필요합니다.
 
 # Collecting new metrics
-1. 새로운 metric 정보를 수집하기 위해 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집한다.
+1. 새로운 metric 정보를 수집하기 위해 아래 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집합니다.
 ```
 kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
 ```
 ```
-   만약, istio >= 1.1.2 일 경우, 아래 yaml configuration 적용 필요
+   만약, istio version >= 1.1.2 일 경우, 아래 yaml configuration 적용 필요합니다.
    kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 ```
 
-samples/bookinfo/telemetry/metrics-crd.yaml
+## samples/bookinfo/telemetry/metrics-crd.yaml
 ```
-# Configuration for metric instances
+# metric instance 설정
 apiVersion: "config.istio.io/v1alpha2"
 kind: metric
 metadata:
@@ -42,7 +42,7 @@ spec:
     message: '"twice the fun!"'
   monitored_resource_type: '"UNSPECIFIED"'
 ---
-# Configuration for a Prometheus handler
+# prometheus handler 설정
 apiVersion: "config.istio.io/v1alpha2"
 kind: prometheus
 metadata:
@@ -59,7 +59,7 @@ spec:
     - destination
     - message
 ---
-# Rule to send metric instances to a Prometheus handler
+# metric instance -> prometheus handler로 전송하기 위한 rule
 apiVersion: "config.istio.io/v1alpha2"
 kind: rule
 metadata:
@@ -71,25 +71,34 @@ spec:
     instances:
     - doublerequestcount.metric
 ```
-2. 샘플 애플리케이션으로 트래픽 전송
-Bookinfo (sample application)에 traffic을 전송한다. Bookinfo App의 경우, browser를 통해 http://$GATEWAY_URL/productpage 브라우징 하거나, 아래와 같이 curl을 이용하여 http request 수행한다.
+
+2. Bookinfo 앱으로 트래픽 전송
+Bookinfo App에 트래픽을 생성하기 위해 http://$GATEWAY_URL/productpage 웹브라우징 하거나, 아래와 같이 curl 을 사용합니다.
 ```
 curl http://$GATEWAY_URL/productpage
 ```
 
-참고로 minikube 환경에서 GATEWAY_URL을 설정하기 위한 방법은 아래 스크립트를 참고한다.
+minikube 환경에서 GATEWAY_URL 환경변수 값은 아애롸 같은 방법으로 설정할 수 있습니다.
 ```
+# INGRESS_HOST
+export INGRESS_HOST=$(minikube ip)
+
+# INGRESS_PORT (http)
 export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
+
+# SECURE_INGRESS_PORT (https)
 export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')
+
+$ GATEWAY_URL
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 ```
-3. 새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행한다.
+3. 새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행합니다.
 ```
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &
 ```
 
 
-새로운 metric value 값 확인을 위해 <a href="http://localhost:9090/graph">Prometheus UI</a> 웹브라우저 접속하여 확인한다. 위 제공된 링크는 Prometheus UI 페이지를 열어서, istio_double_request_count metric 값을 쿼리를 실행한다. Console Tab 테이블에 표시된 entry 정보는 다음과 비슷하다.
+위 metrics-crd.yaml 설정에서 정의한 metric instance 값 확인을 위해 <a href="http://localhost:9090/graph#%5B%7B%22range_input%22%3A%221h%22%2C%22expr%22%3A%22istio_double_request_count%22%2C%22tab%22%3A1%7D%5D">Prometheus UI</a>  Prometheus UI 접속하여 istio_double_request_count metric 값을 쿼리하면 Console Tab 테이블에 **istio_double_request_count** metric 값 확인이 가능합니다.
 ```
 istio_double_request_count{destination="details-v1",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="client",source="productpage-v1"}   8
 istio_double_request_count{destination="details-v1",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="server",source="productpage-v1"}   8
@@ -98,28 +107,33 @@ istio_double_request_count{destination="istio-policy",instance="172.17.0.12:4242
 ```
 더 많은 metric value 값을 Prometheus에서 쿼리하기 위해 [Querying Istio Metrics]("http://istio.io/docs/tasks/telemetry/metrics/querying-metrics)을 참고한다.
 
-# Understanding the metrics configuration
-이번 작업에서는 Service Mesh 에서 발생하는 모든 트랙픽에 대한 새로운 metric 정보를 자동으로 생성하고 리포팅하기 위한 설정을 Mixer에 추가했다.
-추가된 설정은 Mixer 기능의 3가지 부분을 컨트롤한다.
-1. istio attribute 에서 instance(이 예제에서는 metric 값) 생성
-2. 생성된 인스터스를 processing 할 수 있는 handlers 생성
-3. Rule Set에 따라 인스턴스를 handlers 로 전송
+# Understanding the metrics configuration (samples/bookinfo/telemetry/metrics-crd.yaml)
+지금까지 Istio Service Mesh 안에서 발생하는 모든 트래픽에 대해 **istio_double_request_count metric** 정보를 자동으로 생성하고 , 리포팅하기 위한 설정(samples/bookinfo/telemetry/metrics-crd.yaml)을 Istio Mixer에 적용했습니다. 이 설정에 대한 자세한 내용을 살펴보겠습니다.
 
-metrics configuration은 Mixer 가 Prometheus 로 metric value 값을 전달하도록 명시합니다. 이를 위해 3가지 블럭 구성을 사용합니다. instance configuration, handler configuration, and rule configuration.
+metric configuration(metrics-crd.yaml)은 크게 Mixer 기능의 3가지 블럭을 정의하여 컨틀롤 합니다.
+1. istio attribute 값들로부터 metric instance 생성
+2. 생성된 metric instance를 프로세싱 하기 위한 handlers 생성
+3. metric instance 를 handler로 전송하기 위한 Rule 생성
 
-The Kind: instance 블럭은 doublerequestcount라는 새로운 메트릭에 대해 생성 된 메트릭 값(또는 인스턴스)에 대한 스키마를 정의합니다. 이 인스턴스 설정은 Mixer에게 Envoy에 의해 보고되는 속성 (및 Mixer 자체에 의해 생성되는 속성)에 근거 해, 임의의 request에 대해서 메트릭 값 생성하는 방법을 지시한다.
+metrics configuration은 mixer 가 prometheus 로 metric value 값을 전달하도록 명시합니다. 이를 위해 3가지 블럭 구성을 사용합니다. metric 설정, handler 설정, and rule 설정.
 
-doublerequestcout에 대한 각각의 instance에 대해, 설정은 Mixer가 각 instance 에 대해 값 2를 지원하도록 명시한다. 이유는 Istio는 각각의 request에 대해 instance를 생성하는데, 이건 이 metric 이 수신받은 총 request 수의 2배를 저장하기 때문이다.
+## metric 설정
+- **doublerequestcount** metric 이름과 속성값에 대한 스키마를 정의합니다. 이 metric 설정은 Mixer에게 Envoy에 의해 보고되는 [속성](https://istio.io/docs/reference/config/policy-and-telemetry/attribute-vocabulary/) (또는 Mixer 자체에 의해 생성되는 속성)에 근거하여, 임의의 request에 대해 metric 값을 생성하는 방법에 대해 정의합니다.
+-  doublerequestcout metric 값을 2로 설정하도록 명시했습니다. 이유는 Istio가 각각의 request에 대해 instance를 생성하기 때문에 metric은 수신된 총 request 수의 2배에 해당되는 값을 기록합니다.
+- Dimesions은 다른 필요성과 질의 방향에 따라 metric 데이터를 자르고, 수집하고, 분석하는 방법을 제공합니다. 예를들어 특정 응용프로그램 동작 문제를 해결할때 특정 대상 서비스에 대한 요청만 고려하는 것이 바람직할 수 있습니다.
+- Dimensions의 구성은 reporter, source, destination, message로 구성했고, reporter 값은 report metric의 kind 값이 "inbound"인 경우 client 값으로, "outbound"의 경우 server 값으로 설정합니다. source, destination 속성 값을 각 workload의 이름으로 설정했고, 해당 값이 없는 경우 디폴트 값 "unknown"을 사용합니다. message는 기본값 "twice the fun!" 을 사용합니다.
 
-각각의 doublerequestcount에 대한 dimensions 구성은 구체화 되어있다. Dimesions은 다른 필요성과 질의 방향에 따라 metric 데이터를 자르고, 수집하고, 분석하는 방법을 제공한다. 예를들어 특정 응용프로그램 동작 문제를 해결할때 특정 대상 서비스에 대한 요청만 고려하는 것이 바람직할 수 있다.
+## handler 설정
+- handler 구성 블록은 **doublehandler** 라는 hander를 정의합니다.
+- handler spec은 생성된 metric을 Prometheus(Istio Adaptor) 백엔드에서 처리 할 수있는 Prometheus 형식의 값으로 변환하는 방법에 대해 정의합니다.
+- 이 설정은 **double_request_count** 이름의 새로운 prometheus metric 이름을 명시했다. prometheus adapter는 **istio_** 네임스페이스를 접두어로 사용하기 때문애 metric 정보는 prometheus 에서 **istio_double_request_count** 로 보여집니다.
+- metric은 **doublerequestcount** metric을 위한 위한 3가지 라벨 매칭 (reporter, source, destination, message)를 설정하여 prometheus 에서 해당 라벨링으로 쉽게 쿼리할 수 있도록 합니다.
+- mixer instance는 instance_name 매개 변수를 통해 prometheus metric과 매칭됩니다. instance_name은 mixer instances(exmaple: doublerequestcount.instance.istio-system)을 위해 fully-qualified 이름 형식으로 정의해야 합니다.
 
-설정은 속성 값 및 기본값을 기반으로 이러한 차원의 값을 채우도록 Mixer에 지시합니다. 예를 들어 source dimension의 경우 새로운 구성은 source.workload.name 특성에서 값을 가져 오도록 요청합니다. 그 속성값이 설정되어 있지 않은 경우, 규칙은 Mixer에 디폴트 값 "unknown"을 사용하도록 지시합니다. message dimesion의 경우 기본값 "twice the fun!" 모든 인스턴스에 사용됩니다.
-
-handler 구성 블록은 **doublehandler** 라는 hander를 정의한다. handler spec은 Prometheus 어댑터 코드가 받은 메트릭 인스턴스를 Prometheus 백엔드에서 처리 할 수있는 Prometheus 형식의 값으로 변환하는 방법을 구성한다. 이 구성은 **double_request_count** 이름의 새로운 Prometheus Metric 이름을 명시했다. Prometheus adapter는 **istio_** 네임스페이스를 접두어로 붙였는데, 이 metric 정보는 Prometheus 에서 **istio_double_request_count** 로 보여질 것이다. metric은 **doublerequestcount** instances를 위한 3가지 라벨 매칭 dimention 설정을 가지고 있다.
-
-Mixer 인스턴스는 instance_name 매개 변수를 통해 Prometheus 메트릭과 일치합니다. instance_name은 Mixer instances(exmaple: doublerequestcount.instance.istio-system)을 위해 fully-qualified 이름이어야 합니다.
-
-rule 구성은 **doubleprom** 라는 새로운 규칙을 정의합니다. 이 rule은 Mixer가 모든 doublerequestcount instance를 **doublehandler** handler로 전송하도록 설정합니다. rule 안에 match 절이 없기 때문에 그리고 rule은 네임스페이스(istio-system) 안에서 default configuration 설정되었기 때문에 rule은 service mesh 안에 있는 모든 request에 대해 동작한다.
+## rule 설정
+- rule 설정은 **doubleprom** 라는 이름으로 정의합니다.
+- 이 rule은 Mixer가 모든 doublerequestcount metric을 **doublehandler** handler로 전송하도록 설정합니다.
+- rule 설정에 특별한 조건이 없기 때문에 service mesh 안에서 발생하는 모든 request 메시지에 대한 metric 정보를 handler로 전송합니다.
 
 # Cleanup
 - new metric configuraiton 설정을 삭제한다.
