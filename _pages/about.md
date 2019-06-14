@@ -1,13 +1,11 @@
 ---
 layout: archive
 permalink: /about/
-title: "About Me"
+title: "About"
 author_profile: true
 ---
 
-# About
-
-## Career
+Career
 - SKTelecom (DevOps, GIS Engineer)
 - PearlAbyss
 - SECUI
@@ -15,11 +13,11 @@ author_profile: true
 - Financial Security Agency (FSA)
 - Mcubeworks
 
-## Contact
+Contact
 - name: Daniel Moon
 - email: sysmoon@gmail.com
 
-## Interests
+Interests
 - Autonomous Driving
 - HD Map
 - Big Data
