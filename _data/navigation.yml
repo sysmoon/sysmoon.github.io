@@ -12,6 +12,8 @@
   #   url: /sitemap/
 
 main:
+  - title: "About"
+    url: /about/
   - title: "Archive"
     url: /year-archive/
   - title: "tag"
