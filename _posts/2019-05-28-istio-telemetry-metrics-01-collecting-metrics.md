@@ -25,7 +25,7 @@ kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
    kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 ```
 
-samples/bookinfo/telemetry/metrics-crd.yaml
+* samples/bookinfo/telemetry/metrics-crd.yaml
 ```
 # metric instance 설정
 apiVersion: "config.istio.io/v1alpha2"
