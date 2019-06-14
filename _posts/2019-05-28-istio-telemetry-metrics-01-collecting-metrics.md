@@ -73,7 +73,6 @@ spec:
     instances:
     - doublerequestcount.metric
 ```
-
 2. Bookinfo 앱으로 트래픽 전송  
 Bookinfo App에 트래픽을 생성하기 위해 http://$GATEWAY_URL/productpage 웹브라우징 하거나, 아래와 같이 curl 을 사용합니다.
 
