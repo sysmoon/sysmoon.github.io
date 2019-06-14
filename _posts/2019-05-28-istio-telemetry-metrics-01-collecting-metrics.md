@@ -12,7 +12,7 @@ Service Mesh 안에서 새로운 metric을 정의하고, 자동으로 수집하�
 hands-on을 위해 Bookinfo 샘플 앱이 먼저 배포되어있어야 합니다.  
 
 ## Before you begin
-- 사용하고 있는 쿠버네티스 클러스터에 Istio를 설치하고, Bookinfo 앱을 배포합니다.  
+사용하고 있는 쿠버네티스 클러스터에 Istio를 설치하고, Bookinfo 앱을 배포합니다.  
 이 작업은 Mixer가 default configuration (–configDefaultNamespace=istio-system) 으로 설정하여 기본 네임스페이스(istio-system)에 설치된 것으로 가정하고 진행합니다. 만약 다른 설정값을 사용하고 있다면, 위 기본 설정으로 업데이트가 필요합니다.
 
 ## Collecting new metrics
@@ -158,4 +158,3 @@ kubectl delete -f samples/bookinfo/telemetry/metrics-crd.yaml
 ```
 killall kubectl
 ```
-- 이어지는 후속 task 작업을 계속 진행할 것이 아니라면, <a href="https://istio.io/docs/examples/bookinfo/#cleanup">Bookinfo cleanup</a> 내용을 참고하여 bookinfo 관련 애플리케이션을 shtudown 한다.
