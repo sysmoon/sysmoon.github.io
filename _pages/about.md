@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 Career
-- SKTelecom (DevOps, GIS Engineer)
+- SKTelecom (DevOps, Cloud Solution Architecture)
 - PearlAbyss
 - SECUI
 - Airplug
