@@ -7,7 +7,7 @@ tags: [istio, telemetry]
 ---
 
 ## Collecting Metric
-이번 블로그에서는 Service Mesh 안에서 자동으로 telemetry 정보를 수집하기 위한 istio 설정 방법에 대해 알아봅니다.
+이번 장에서는 Service Mesh 안에서 자동으로 telemetry 정보를 수집하기 위한 istio 설정 방법에 대해 알아봅니다.
 Service Mesh 안에서 새로운 metric을 정의하고, 자동으로 수집하기 위한 방법을 실습을 통해 확인 가능합니다.
 hands-on을 위해 Bookinfo 샘플 앱이 먼저 배포되어있어야 합니다.
 
@@ -17,6 +17,7 @@ hands-on을 위해 Bookinfo 샘플 앱이 먼저 배포되어있어야 합니다
 
 ## Collecting new metrics
 1. 새로운 metric 정보를 수집하기 위해 아래 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집합니다.
+
 ```
 kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
 ```
@@ -25,7 +26,7 @@ kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
    kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 ```
 
-* samples/bookinfo/telemetry/metrics-crd.yaml
+- samples/bookinfo/telemetry/metrics-crd.yaml
 
 ```
 # metric instance 설정
