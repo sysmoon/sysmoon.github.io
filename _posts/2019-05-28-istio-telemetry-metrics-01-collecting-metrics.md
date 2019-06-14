@@ -16,13 +16,15 @@ hands-on을 위해 Bookinfo 샘플 앱이 먼저 배포되어있어야 합니다
 이 작업은 Mixer가 default configuration (–configDefaultNamespace=istio-system) 으로 설정하여 기본 네임스페이스(istio-system)에 설치된 것으로 가정하고 진행합니다. 만약 다른 설정값을 사용하고 있다면, 위 기본 설정으로 업데이트가 필요합니다.
 
 ## Collecting new metrics
-1. 새로운 metric 정보를 수집하기 위해 아래 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집합니다.
+1. 새로운 metric 정보를 수집하기 위해 아래 YAML 파일을 적용하면, istio는 필요한 리소스를 생성하고, metic 정보를 자동으로 수집합니다.  
+
 ```
 kubectl apply -f samples/bookinfo/telemetry/metrics.yaml
 
 만약, istio version >= 1.1.2 일 경우, 아래 yaml configuration 적용 필요합니다.
 kubectl apply -f samples/bookinfo/telemetry/metrics-crd.yaml
 ```
+
 - samples/bookinfo/telemetry/metrics-crd.yaml
 ```
 # metric instance 설정
