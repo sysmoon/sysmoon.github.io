@@ -75,12 +75,15 @@ spec:
 ```
 
 2. Bookinfo 앱으로 트래픽 전송
+
 Bookinfo App에 트래픽을 생성하기 위해 http://$GATEWAY_URL/productpage 웹브라우징 하거나, 아래와 같이 curl 을 사용합니다.
+
 ```
 curl http://$GATEWAY_URL/productpage
 ```
 
 minikube 환경에서 GATEWAY_URL 환경변수 값은 아애롸 같은 방법으로 설정할 수 있습니다.
+
 ```
 # INGRESS_HOST
 export INGRESS_HOST=$(minikube ip)
@@ -96,17 +99,20 @@ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 ```
 
 3. 새로운 metric 정보가 생생/수집 되고 있는지 확인하다. 쿠버네티스 환경에서 Prometheus를 위한 port-forwarding setup을 위해 다음과 같은 명령어를 실행합니다.
+
 ```
 kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=prometheus -o jsonpath='{.items[0].metadata.name}') 9090:9090 &
 ```
 
 위 metrics-crd.yaml 설정에서 정의한 metric instance 값 확인을 위해 <a href="http://localhost:9090/graph#%5B%7B%22range_input%22%3A%221h%22%2C%22expr%22%3A%22istio_double_request_count%22%2C%22tab%22%3A1%7D%5D">Prometheus UI</a>  Prometheus UI 접속하여 istio_double_request_count metric 값을 쿼리하면 Console Tab 테이블에 **istio_double_request_count** metric 값 확인이 가능합니다.
+
 ```
 istio_double_request_count{destination="details-v1",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="client",source="productpage-v1"}   8
 istio_double_request_count{destination="details-v1",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="server",source="productpage-v1"}   8
 istio_double_request_count{destination="istio-policy",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="server",source="details-v1"}   4
 istio_double_request_count{destination="istio-policy",instance="172.17.0.12:42422",job="istio-mesh",message="twice the fun!",reporter="server",source="istio-ingressgateway"}   4
 ```
+
 더 많은 metric value 값을 Prometheus에서 쿼리하기 위해 [Querying Istio Metrics]("http://istio.io/docs/tasks/telemetry/metrics/querying-metrics)을 참고한다.
 
 ## Understanding the metrics configuration (samples/bookinfo/telemetry/metrics-crd.yaml)
