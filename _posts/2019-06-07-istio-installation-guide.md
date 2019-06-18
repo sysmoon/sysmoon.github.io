@@ -147,9 +147,6 @@ $ minikube addons list
 minikube addons enable [addon-name]
 ```
 
-
-
 Reference
 - [Kubernetes Minikube 설치 공식 가이드](https://kubernetes.io/ko/docs/tasks/tools/install-minikube/)
-
 - [Minikube로 로컬상에서 쿠버네티스 구동](https://kubernetes.io/ko/docs/setup/minikube/)
