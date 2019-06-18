@@ -85,7 +85,7 @@ Istio service mesh는 논리적으로 **data plane** 과 **control plane** 으�
 
 아래 다이어그램은 각각의 plane 을 구성하는 서로 다른 컴포넌트를 보여줍니다.
 
-![Istio Dashboard](/assets/images/istio/Istio_architecture.svg)
+![Istio Dashboard](/assets/images/istio/istio_architecture.svg)
 
 ## Envoy
 Istio는 Envoy의 확장된 버전을 사용한다. Envoy는 service mesh 안에서 발생하는 모든 inbound & outbound 트래픽에 대한 중재를 위해 C++로 개발된 고성능 proxy 서버입니다. Istio는 Envoy의 많은 내장기능을 활용하는데 예를 들면 다음과 같습니다.
