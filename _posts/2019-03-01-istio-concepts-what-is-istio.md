@@ -108,7 +108,7 @@ Mixer는 service mesh 간 접근통제와 정책을 체크하고, Envoy Proxy와
 Envoy는 [속성](https://Istio.io/docs/concepts/policies-and-telemetry/#attributes)을 추출한 후 평가를 위해 Mixer로 전송합니다. 이러한 속성 추출과 정책 평가는 [Mixer Configuration documentaion](https://Istio.io/docs/concepts/policies-and-telemetry/#configuration-model) 문서를 통해 자세히 확인 가능합니다.
 
 Mixer는 유연한 플러그인 모델을 가지고 있습니다. 이러한 모델은 다양한 호스트 환경과 인프라 백엔드와 결합할 수 있도록 합니다. 따라서 Istio는 Envoy 프락시와 Istio 관리 서비스를 이러한 세부 속성에서 추상화 합니다.
-![Attribute Machine](/Assets/images/istio/attribute_machine.svg)
+![Attribute Machine](/assets/images/istio/attribute_machine.svg)
 
 ## Pilot
 **Pilot**은 envoy에 대한 설정 관리하는 컴포넌트 입니다.
